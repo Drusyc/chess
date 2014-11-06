@@ -1,37 +1,25 @@
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 
 
-public class RulesListener implements MenuListener {
+public class RulesListener implements ActionListener {
 
 	private Container container;
-	private ScoresPannel rulesPannel;
+	private RulesPannel rulesPannel;
 	
 	public RulesListener(Container container) {
 		this.container = container;		
 	}
 
-	@Override
-	public void menuCanceled(MenuEvent e) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
-	public void menuDeselected(MenuEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void menuSelected(MenuEvent e) {
+	public void actionPerformed(ActionEvent arg0) {
 		container.removeAll();
-		rulesPannel = new ScoresPannel();
+		rulesPannel = new RulesPannel();
 		container.add(rulesPannel);
 		container.revalidate();
-
 	}
 
 }

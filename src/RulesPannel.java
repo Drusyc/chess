@@ -1,27 +1,22 @@
-import java.awt.LayoutManager;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
 public class RulesPannel extends JPanel {
 
 	public RulesPannel() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public RulesPannel(LayoutManager arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
-	}
-
-	public RulesPannel(boolean arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
-	}
-
-	public RulesPannel(LayoutManager arg0, boolean arg1) {
-		super(arg0, arg1);
-		// TODO Auto-generated constructor stub
+		this.setLayout(new BorderLayout());
+		this.setBackground(Color.white);
+		
+		JLabel intro = new JLabel("Rules !");
+		intro.setHorizontalAlignment(JLabel.CENTER);
+		Font fIntro = new Font("Serif", Font.BOLD,20);
+		intro.setFont(fIntro);
+		this.add(intro, BorderLayout.CENTER);
 	}
 
 }

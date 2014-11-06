@@ -44,7 +44,7 @@ public class ChessGui extends JPanel {
 
 	public ChessGui() {
 		// load and set background image
-		this.imgBackground = new ImageIcon("/home/alexia/Bureau/ChessGame/img/board.png").getImage();
+		this.imgBackground = new ImageIcon("/home/alexia/Bureau/chess/img/board.png").getImage();
 
 		// create and place pieces
 		//
@@ -115,8 +115,10 @@ public class ChessGui extends JPanel {
 		
 		menu.add(file);
 		menu.add(scores);
-		ScoresListener listenerRules = new ScoresListener(container);
-		scores.addMenuListener(listenerRules);
+		ScoresListener listenerScores = new ScoresListener(container);
+		scores.addMenuListener(listenerScores);
+		RulesListener listenerRules = new RulesListener(container);
+		rules.addActionListener(listenerRules);
 		
 		f.setJMenuBar(menu);
 		
@@ -175,7 +177,7 @@ public class ChessGui extends JPanel {
 				break;
 		}
 		filename += ".png";
-		return new ImageIcon("/home/alexia/Bureau/ChessGame/img/" + filename).getImage();
+		return new ImageIcon("/home/alexia/Bureau/chess/img/" + filename).getImage();
 	}
 
 	@Override
