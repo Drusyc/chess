@@ -51,5 +51,9 @@ public class Plateau {
     public void add_Detruite (Piece piece){
     	this.pieces_detruites.add(piece);
     }
+    
+    public Case getIJ (int i, int j) {
+    	return this.matriceCases[i][j];
+    }
 
 }
