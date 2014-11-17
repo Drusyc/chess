@@ -3,10 +3,19 @@ package gui;
 
 
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Container;
+
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 /**
  * all x and y coordinates point to the upper left position of a component all
@@ -32,12 +41,14 @@ public class ChessGui extends JPanel {
 
 	private static final int TILE_OFFSET_X = 50;
 	private static final int TILE_OFFSET_Y = 50;
+	
+	
 
 	private Image imgBackground;
 	private Container container;
 
 	// 0 = bottom, size-1 = top
-	private List<Piece> pieces = new ArrayList<Piece>();
+	private List<Piece_old> pieces = new ArrayList<Piece_old>();
 
 	public ChessGui() {
 		// load and set background image
@@ -135,7 +146,7 @@ public class ChessGui extends JPanel {
 	 */
 	private void createAndAddPiece(int color, int type, int x, int y) {
 		Image img = this.getImageForPiece(color, type);
-		Piece piece = new Piece(img, x, y);
+		Piece_old piece = new Piece_old(img, x, y);
 		this.pieces.add(piece);
 	}
 
@@ -178,7 +189,7 @@ public class ChessGui extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		g.drawImage(this.imgBackground, 0, 0, null);
-		for (Piece piece : this.pieces) {
+		for (Piece_old piece : this.pieces) {
 			g.drawImage(piece.getImage(), piece.getX(), piece.getY(), null);
 		}
 	}

@@ -2,13 +2,13 @@ package gui;
 
 import java.awt.Image;
 
-public class Piece {
+public class Piece_old {
 	
 	private Image img;
 	private int x;
 	private int y;
 
-	public Piece(Image img, int x, int y) {
+	public Piece_old(Image img, int x, int y) {
 		this.img = img;
 		this.x = x;
 		this.y = y;

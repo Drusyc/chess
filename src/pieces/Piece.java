@@ -1,10 +1,11 @@
 package pieces;
 
-import model.Visiteur;
-/**
- * Created by amadou on 17/11/14.
- */
+import enumeration.Couleur;
+
+
 public abstract class Piece {
-	
+	private String type;
+	private Couleur color;
 	abstract void appliquer (Visiteur v);
 }
+
