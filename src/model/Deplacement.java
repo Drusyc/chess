@@ -71,7 +71,22 @@ public class Deplacement implements Visiteur {
 
 	@Override
 	public void visite(Tour p) {
-		// TODO Auto-generated method stub
+		Case init = p.getCase();
+		boolean valid = true;
+		
+		if(init.getX()==dest.getX()){ // mouvement vertical
+			Plateau board = dest.getBoard();
+			
+			if (init.getY()>dest.getY()){
+				for(int i=init.getY()-1; i<dest.getY(); i++)
+					valid = valid & board.getIJ(init.getX(),i); 
+			}
+			
+		}
+		else
+			if(init.getY()==dest.getY()){ // mouvement horisontal
+				
+			}
 		
 	}
 
@@ -98,5 +113,7 @@ public class Deplacement implements Visiteur {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }
