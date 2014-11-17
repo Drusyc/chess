@@ -1,5 +1,6 @@
 package model;
 
+import enumeration.Couleur;
 import pieces.Cavalier;
 import pieces.Fou;
 import pieces.Piece;
@@ -7,7 +8,7 @@ import pieces.Pion;
 import pieces.Reine;
 import pieces.Roi;
 import pieces.Tour;
-
+import plateau.*;
 
 public class Deplacement implements Visiteur {
     
@@ -20,7 +21,22 @@ public class Deplacement implements Visiteur {
     
 	@Override
 	public void visite(Pion p) {
-		// TODO Auto-generated method stub
+		
+		Case init = p.getCase();
+		
+		if(p.getColor()==Couleur.COLOR_WHITE){
+			if(init.getX()==dest.getX()){ // mouvement
+				if((init.getY()+1)==dest.getY()&& dest.getY()<=63){ //coordonées valides
+					if(dest.getPiece()==null) //on peut déplacer
+						dest.setPiece(p);
+				}
+			}
+			else{
+				
+			}
+		}
+		else{
+		}
 		
 	}
 
