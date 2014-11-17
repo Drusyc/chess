@@ -3,5 +3,5 @@ package pieces;
 /**
  * Created by amadou on 17/11/14.
  */
-public class Tour {
+public class Tour extends Piece {
 }

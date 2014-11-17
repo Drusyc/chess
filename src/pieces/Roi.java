@@ -3,5 +3,5 @@ package pieces;
 /**
  * Created by amadou on 17/11/14.
  */
-public class Roi {
+public class Roi extends Piece {
 }
