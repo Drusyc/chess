@@ -44,7 +44,7 @@ public class ChessGui extends JPanel {
 
 	public ChessGui() {
 		// load and set background image
-		this.imgBackground = new ImageIcon("/home/alexia/Bureau/ChessGame/img/board.png").getImage();
+		this.imgBackground = new ImageIcon("img/board.png").getImage();
 
 		// create and place pieces
 		//
@@ -175,7 +175,7 @@ public class ChessGui extends JPanel {
 				break;
 		}
 		filename += ".png";
-		return new ImageIcon("/home/alexia/Bureau/ChessGame/img/" + filename).getImage();
+		return new ImageIcon("img/" + filename).getImage();
 	}
 
 	@Override
