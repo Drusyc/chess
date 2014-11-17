@@ -10,6 +10,9 @@ public class Case {
     private int y;
     private boolean occupee;
     private Piece piece = null;
+    
+    public Case() {
+    }
 
     public void setX(int x) {
         this.x = x;
@@ -34,6 +37,11 @@ public class Case {
 	}
 
     public void setPiece(Piece piece) {
+    	this.piece = piece;
+    }
+    
+    public Piece getPiece () {
+    	return this.piece;
     }
     
     
