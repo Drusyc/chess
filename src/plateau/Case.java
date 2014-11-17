@@ -1,11 +1,13 @@
 package plateau;
 
+import java.util.Observable;
+
 import pieces.Piece;
 
 /**
  * Created by amadou on 17/11/14.
  */
-public class Case {
+public class Case extends Observable {
     private int x;
     private int y;
     private boolean occupee;
