@@ -1,17 +1,12 @@
 package gui;
 
-import java.awt.Container;
-import java.awt.Graphics;
-import java.awt.Image;
+
+
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 
 /**
  * all x and y coordinates point to the upper left position of a component all

@@ -1,11 +1,31 @@
 package observer;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by amadou on 17/11/14.
  */
-public interface Observable {
+abstract public class Observable {
 
-    public void attach(Observateur obs);
-    public void detach();
-    public void inform();
+    private Set<Observateur> listeObservateurs;
+
+    public Observable () {
+    	this.listeObservateurs = new HashSet<Observateur>();
+    }
+    
+    public void attach(Observateur o) {
+        this.listeObservateurs.add(o);
+    }
+
+    public void detach(Observateur o) {
+        //Suppression de tous les observateurs
+        this.listeObservateurs.remove(o); 
+    }
+
+    public void inform() {
+        for (Observateur obs : this.listeObservateurs) {
+            obs.mAj();
+        }
+    }
 }
