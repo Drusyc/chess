@@ -12,5 +12,6 @@ public abstract class Etat {
 	Etat stopperPartie() {
 		return this;
 	}
+	
 }
 
