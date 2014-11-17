@@ -1,0 +1,4 @@
+A revoir :
+Patron Observateur :
+    Le plateau devrait plutôt observer les cases qui sont dessus pas les pièces ?
+    La class Sujet doit être une interface pour respecter le patron de conception
