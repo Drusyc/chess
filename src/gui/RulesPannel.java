@@ -5,6 +5,7 @@ import java.awt.LayoutManager;
 import javax.swing.JPanel;
 
 
+@SuppressWarnings("serial")
 public class RulesPannel extends JPanel {
 
 	public RulesPannel() {
