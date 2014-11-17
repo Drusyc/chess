@@ -7,6 +7,7 @@ import pieces.Pion;
 import pieces.Reine;
 import pieces.Roi;
 import pieces.Tour;
+import plateau.Case;
 
 
 public class Deplacement implements Visiteur {
