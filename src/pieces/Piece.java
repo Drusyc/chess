@@ -1,5 +1,6 @@
 package pieces;
 
+import model.Visiteur;
 import enumeration.Couleur;
 
 
