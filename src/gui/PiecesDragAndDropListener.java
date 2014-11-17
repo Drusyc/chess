@@ -7,15 +7,15 @@ import java.util.List;
 
 public class PiecesDragAndDropListener implements MouseListener, MouseMotionListener {
 
-	private List<Piece> pieces;
+	private List<Piece_old> pieces;
 	private ChessGui chessGui;
 	
-	private Piece dragPiece;
+	private Piece_old dragPiece;
 	private int dragOffsetX;
 	private int dragOffsetY;
 	
 
-	public PiecesDragAndDropListener(List<Piece> pieces, ChessGui chessGui) {
+	public PiecesDragAndDropListener(List<Piece_old> pieces, ChessGui chessGui) {
 		this.pieces = pieces;
 		this.chessGui = chessGui;
 	}
@@ -30,7 +30,7 @@ public class PiecesDragAndDropListener implements MouseListener, MouseMotionList
 		// (therefore we itereate in reverse order)
 		//
 		for (int i = this.pieces.size()-1; i >= 0; i--) {
-			Piece piece = this.pieces.get(i);
+			Piece_old piece = this.pieces.get(i);
 			
 			if( mouseOverPiece(piece,x,y)){
 				// calculate offset, because we do not want the drag piece
@@ -58,7 +58,7 @@ public class PiecesDragAndDropListener implements MouseListener, MouseMotionList
 	 * @param y y coordinate of mouse
 	 * @return true if mouse is over the piece
 	 */
-	private boolean mouseOverPiece(Piece piece, int x, int y) {
+	private boolean mouseOverPiece(Piece_old piece, int x, int y) {
 		return piece.getX() <= x 
 			&& piece.getX()+piece.getWidth() >= x
 			&& piece.getY() <= y
