@@ -1,6 +1,11 @@
 package plateau;
 
 
+import gui.Piece_old;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import pieces.Piece;
 import pieces.Pion;
 
@@ -18,6 +23,9 @@ public class Plateau {
     /* constructeur privé de la classe Plateau pour interdire
     l'instanciation de la classe Plateau depuis une autre classe
      */
+    
+    private List<Piece> pieces_detruites = new ArrayList<Piece>();
+    
     private Plateau() {
         matriceCases = new Case[64][64];
         // Placeme
@@ -38,10 +46,10 @@ public class Plateau {
             caze.setPiece(piece);
             matriceCases[1][i] = caze;
             }
-
-
-
     }
 
+    public void add_Detruite (Piece piece){
+    	this.pieces_detruites.add(piece);
+    }
 
 }
