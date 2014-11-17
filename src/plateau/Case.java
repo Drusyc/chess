@@ -11,14 +11,8 @@ public class Case {
     private boolean occupee;
     private Piece piece = null;
     
-    public Case() {
-    }
-
-    public void setX(int x) {
+    public Case(int x, int y) {
         this.x = x;
-    }
-
-    public void setY(int y) {
         this.y = y;
     }
 
