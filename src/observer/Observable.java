@@ -3,5 +3,6 @@ package observer;
 /**
  * Created by amadou on 17/11/14.
  */
-public class Observable {
+public interface Observable {
+    public void mAj();
 }
