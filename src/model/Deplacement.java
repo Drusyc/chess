@@ -27,16 +27,44 @@ public class Deplacement implements Visiteur {
 		
 		if(p.getColor()==Couleur.COLOR_WHITE){
 			if(init.getX()==dest.getX()){ // mouvement
-				if((init.getY()+1)==dest.getY()&& dest.getY()<=63){ //coordonées valides
-					if(dest.getPiece()==null) //on peut déplacer
+				if((init.getY()-1)==dest.getY()&& dest.getY()>=0){ //coordonées valides
+					if(dest.getPiece()==null){ //on peut déplacer
 						dest.setPiece(p);
+						//dest.informe() 
+					}
 				}
 			}
 			else{
+				if( ((init.getX()+1)==dest.getX() || (init.getX()-1)==dest.getX()) 
+						&& (init.getY()-1)==dest.getY() && 
+						dest.getY()>=0 && dest.getX()<=7 && dest.getX()>=0
+						&& dest.getPiece()!=null && dest.getPiece().getColor()!=p.getColor()){
+						dest.detruirePiece(); //on a pris la piece adverse
+						dest.setPiece(p);
+				}
 				
 			}
 		}
 		else{
+			
+			if(init.getX()==dest.getX()){ // mouvement
+				if((init.getY()+1)==dest.getY()&& dest.getY()<=7){ //coordonées valides
+					if(dest.getPiece()==null){ //on peut déplacer
+						dest.setPiece(p);
+						//dest.informe() 
+					}
+				}
+			}
+			else{
+				if( ((init.getX()+1)==dest.getX() || (init.getX()-1)==dest.getX()) 
+						&& (init.getY()+1)==dest.getY() && 
+						dest.getY()<=7 && dest.getX()<=7 && dest.getX()>=0
+						&& dest.getPiece()!=null && dest.getPiece().getColor()!=p.getColor()){
+						dest.detruirePiece(); //on a pris la piece adverse
+						dest.setPiece(p);
+				}
+				
+			}
 		}
 		
 	}
