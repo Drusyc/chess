@@ -17,12 +17,16 @@ public class jeuON extends Etat{
 	static private Joueur joueur2;
 	static private Plateau board;
 	
+	static public Joueur joueurActif;
+	
 	
 	static Etat initial (String name1, String name2) {
 		joueur1 = new Joueur(Couleur.COLOR_WHITE, "joueur_1");	
 		joueur2 = new Joueur(Couleur.COLOR_BLACK, "joueur_2");
 		
 		board = Plateau.instance();
+		
+		joueurActif = joueur1;
 		return state;
 	}
 	
@@ -30,7 +34,13 @@ public class jeuON extends Etat{
 		return jeuOFF.initial();
 	}
 	
-	
+	public void switchJoueur () {
+		if (joueurActif.getNom() == "joueur_1") {
+			this.joueurActif = this.joueur2;
+		} else {
+			this.joueurActif = this.joueur1;
+		}
+	}
 	
 	
 	

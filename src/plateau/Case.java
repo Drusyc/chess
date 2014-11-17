@@ -13,6 +13,8 @@ public class Case extends Observable {
     private boolean occupee;
     private Piece piece = null;
     
+    private Plateau board;
+    
     public Case() {
     }
 
@@ -20,7 +22,15 @@ public class Case extends Observable {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public Plateau getBoard() {
+		return board;
+	}
+
+	public void setBoard(Plateau board) {
+		this.board = board;
+	}
+
+	public void setY(int y) {
         this.y = y;
     }
 
@@ -40,6 +50,12 @@ public class Case extends Observable {
 
     public void setPiece(Piece piece) {
     	this.piece = piece;
+    }
+    
+    public void detruirePiece () {
+    	if (this.piece != null) {
+    		board.add_Detruite(this.piece);
+    	}
     }
     
     public Piece getPiece () {

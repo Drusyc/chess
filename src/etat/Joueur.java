@@ -14,23 +14,23 @@ public class Joueur {
 		this.nom = n;
 	}
 
-	@SuppressWarnings("unused")
-	private Couleur getColor() {
+	
+	public Couleur getColor() {
 		return color;
 	}
 
-	@SuppressWarnings("unused")
-	private void setColor(Couleur color) {
+	
+	public void setColor(Couleur color) {
 		this.color = color;
 	}
 
-	@SuppressWarnings("unused")
-	private String getNom() {
+	
+	public String getNom() {
 		return nom;
 	}
 
-	@SuppressWarnings("unused")
-	private void setNom(String nom) {
+	
+	public void setNom(String nom) {
 		this.nom = nom;
 	}
 	
