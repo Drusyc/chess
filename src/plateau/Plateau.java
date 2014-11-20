@@ -1,13 +1,12 @@
 package plateau;
 
 
-import gui.Piece_old;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 import pieces.Piece;
-import pieces.Pion;
 
 public class Plateau {
     // unique instance de la classe plateau
@@ -33,8 +32,8 @@ public class Plateau {
                 Case caze = new Case();
                 caze.setX(1); caze.setY(i);
                 caze.setOccupation(true);
-                Piece piece = new Pion();
-                caze.setPiece(piece);
+                //Piece piece = new Pion();
+                //caze.setPiece(piece);
                 matriceCases[1][i] = caze;
 
         }
@@ -42,8 +41,8 @@ public class Plateau {
             Case caze = new Case();
             caze.setX(1); caze.setY(i);
             caze.setOccupation(true);
-            Piece piece = new Pion();
-            caze.setPiece(piece);
+            //pieces.Piece piece = new Pion();
+            //caze.setPiece(piece);
             matriceCases[1][i] = caze;
             }
     }

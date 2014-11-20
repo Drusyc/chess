@@ -4,7 +4,6 @@ package gui;
 
 
 import java.awt.Container;
-
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -17,6 +16,17 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import enumeration.Couleur;
+import enumeration.TypePiece;
+import pieces.Cavalier;
+import pieces.Fou;
+import pieces.Piece;
+import pieces.Pion;
+import pieces.Reine;
+import pieces.Roi;
+import pieces.Tour;
+import plateau.Case;
+
 /**
  * all x and y coordinates point to the upper left position of a component all
  * lists are treated as 0 being the bottom and size-1 being the top piece
@@ -25,16 +35,6 @@ import javax.swing.JPanel;
 public class ChessGui extends JPanel {
 
 	private static final long serialVersionUID = 3114147670071466558L;
-	
-	private static final int COLOR_WHITE = 0;
-	private static final int COLOR_BLACK = 1;
-
-	private static final int TYPE_ROOK = 1;
-	private static final int TYPE_KNIGHT = 2;
-	private static final int TYPE_BISHOP = 3;
-	private static final int TYPE_QUEEN = 4;
-	private static final int TYPE_KING = 5;
-	private static final int TYPE_PAWN = 6;
 
 	private static final int BOARD_START_X = 301;
 	private static final int BOARD_START_Y = 51;
@@ -48,7 +48,7 @@ public class ChessGui extends JPanel {
 	private Container container;
 
 	// 0 = bottom, size-1 = top
-	private List<Piece_old> pieces = new ArrayList<Piece_old>();
+	private List<Piece> pieces = new ArrayList<Piece>();
 
 	public ChessGui() {
 		// load and set background image
@@ -57,55 +57,49 @@ public class ChessGui extends JPanel {
 		// create and place pieces
 		//
 		// rook, knight, bishop, queen, king, bishop, knight, and rook
-		createAndAddPiece(COLOR_WHITE, TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 0,
+		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 0,
 				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(COLOR_WHITE, TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 1,
+		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 1,
 				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(COLOR_WHITE, TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 2,
+		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 2,
 				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(COLOR_WHITE, TYPE_KING, BOARD_START_X + TILE_OFFSET_X * 3,
+		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_KING, BOARD_START_X + TILE_OFFSET_X * 3,
 				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(COLOR_WHITE, TYPE_QUEEN, BOARD_START_X + TILE_OFFSET_X * 4,
+		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_QUEEN, BOARD_START_X + TILE_OFFSET_X * 4,
 				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(COLOR_WHITE, TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 5,
+		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 5,
 				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(COLOR_WHITE, TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 6,
+		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 6,
 				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(COLOR_WHITE, TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 7,
+		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 7,
 				BOARD_START_Y + TILE_OFFSET_Y * 7);
 		// pawns
 		for (int i = 0; i < 8; i++) {
-			createAndAddPiece(COLOR_WHITE, TYPE_PAWN, BOARD_START_X + TILE_OFFSET_X * i,
+			createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_PAWN, BOARD_START_X + TILE_OFFSET_X * i,
 					BOARD_START_Y + TILE_OFFSET_Y * 6);
 		}
 
-		createAndAddPiece(COLOR_BLACK, TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 0,
+		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 0,
 				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(COLOR_BLACK, TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 1,
+		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 1,
 				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(COLOR_BLACK, TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 2,
+		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 2,
 				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(COLOR_BLACK, TYPE_QUEEN, BOARD_START_X + TILE_OFFSET_X * 3,
+		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_QUEEN, BOARD_START_X + TILE_OFFSET_X * 3,
 				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(COLOR_BLACK, TYPE_KING, BOARD_START_X + TILE_OFFSET_X * 4,
+		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_KING, BOARD_START_X + TILE_OFFSET_X * 4,
 				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(COLOR_BLACK, TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 5,
+		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 5,
 				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(COLOR_BLACK, TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 6,
+		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 6,
 				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(COLOR_BLACK, TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 7,
+		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 7,
 				BOARD_START_Y + TILE_OFFSET_Y * 0);
 		for (int i = 0; i < 8; i++) {
-			createAndAddPiece(COLOR_BLACK, TYPE_PAWN, BOARD_START_X + TILE_OFFSET_X * i,
+			createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_PAWN, BOARD_START_X + TILE_OFFSET_X * i,
 					BOARD_START_Y + TILE_OFFSET_Y * 1);
 		}
 
-		// add mouse listeners to enable drag and drop
-		//
-		PiecesDragAndDropListener listener = new PiecesDragAndDropListener(this.pieces,
-				this);
-		this.addMouseListener(listener);
-		this.addMouseMotionListener(listener);
 
 		// create application frame and set visible
 		//
@@ -123,8 +117,10 @@ public class ChessGui extends JPanel {
 		
 		menu.add(file);
 		menu.add(scores);
-		ScoresListener listenerRules = new ScoresListener(container);
-		scores.addMenuListener(listenerRules);
+		ScoresListener listenerScores = new ScoresListener(container);
+		scores.addMenuListener(listenerScores);
+		RulesListener listenerRules = new RulesListener(container);
+		rules.addActionListener(listenerRules);
 		
 		f.setJMenuBar(menu);
 		
@@ -144,9 +140,34 @@ public class ChessGui extends JPanel {
 	 * @param x x position of upper left corner
 	 * @param y y position of upper left corner
 	 */
-	private void createAndAddPiece(int color, int type, int x, int y) {
+	private void createAndAddPiece(Couleur color, TypePiece type, int x, int y) {
+		Case ca = new Case();
+		ca.setX(x);
+		ca.setY(y);
 		Image img = this.getImageForPiece(color, type);
-		Piece_old piece = new Piece_old(img, x, y);
+		Piece piece = null;
+		switch(type){
+		case TYPE_BISHOP:
+			piece = new Fou(img, type, color, ca);
+		break;
+		case TYPE_PAWN:
+			piece = new Pion(img, type, color, ca);
+		break;
+		case TYPE_KING:
+			piece = new Roi(img, type, color, ca);
+		break;
+		case TYPE_QUEEN:
+			piece = new Reine(img, type, color, ca);
+		break;
+		case TYPE_KNIGHT:
+			piece = new Cavalier(img, type, color, ca);
+		break;
+		case TYPE_ROOK:
+			piece = new Tour(img, type, color, ca);
+		break;
+		default:
+			break;
+		}
 		this.pieces.add(piece);
 	}
 
@@ -158,10 +179,10 @@ public class ChessGui extends JPanel {
 	 * @param type type constant
 	 * @return image
 	 */
-	private Image getImageForPiece(int color, int type) {
+	private Image getImageForPiece(Couleur color, TypePiece type) {
 		String filename = "";
 
-		filename += (color == COLOR_WHITE ? "w" : "b");
+		filename += (color == Couleur.COLOR_WHITE ? "w" : "b");
 		switch (type) {
 			case TYPE_BISHOP:
 				filename += "b";
@@ -189,8 +210,8 @@ public class ChessGui extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		g.drawImage(this.imgBackground, 0, 0, null);
-		for (Piece_old piece : this.pieces) {
-			g.drawImage(piece.getImage(), piece.getX(), piece.getY(), null);
+		for (Piece piece : this.pieces) {
+			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
 		}
 	}
 	

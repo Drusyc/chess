@@ -1,7 +1,10 @@
 package pieces;
 
+import java.awt.Image;
+
 import plateau.Case;
 import enumeration.Couleur;
+import enumeration.TypePiece;
 import model.Visiteur;
 
 /**
@@ -9,8 +12,8 @@ import model.Visiteur;
  */
 public class Reine extends Piece {
 	
-	public Reine(String t, Couleur co, Case ca) {
-		super(t, co, ca);
+	public Reine(Image img,TypePiece t, Couleur co, Case ca) {
+		super(img,t, co, ca);
 		// TODO Auto-generated constructor stub
 	}
 

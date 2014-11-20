@@ -1,29 +1,40 @@
 package pieces;
 
+import java.awt.Image;
+
 import model.Visiteur;
 import enumeration.Couleur;
+import enumeration.TypePiece;
 import plateau.Case;
 
 
 public abstract class Piece {
-	private String type;
+	
+	private TypePiece type;
 	private Couleur color;
+
+	private Image img;
+	
 	abstract void appliquer (Visiteur v);
 	
 	private Case actual_case;
 	
-	public Piece (String t, Couleur co, Case ca) {
+	public Piece (Image img,TypePiece t, Couleur co, Case ca) {
 		this.type = t;
 		this.color = co;
 		this.actual_case = ca;
+		this.img = img;
 	}
-
+	
+	public Image getImage() {
+		return img;
+	}
 
 	public Case getCase() {
 		return actual_case;
 	}
 
-	public String getType() {
+	public TypePiece getType() {
 		return type;
 	}
 
@@ -36,6 +47,14 @@ public abstract class Piece {
 		
 		this.actual_case = c;
 		this.actual_case.setPiece(this);
+	}
+	
+	public int getWidth() {
+		return img.getHeight(null);
+	}
+
+	public int getHeight() {
+		return img.getHeight(null);
 	}
 	
 	
