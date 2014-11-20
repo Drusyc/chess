@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class RulesListener implements ActionListener {
 
 	private Container container;
-	private ScoresPannel rulesPannel;
+	private RulesPannel rulesPannel;
 	
 	public RulesListener(Container container) {
 		this.container = container;		
@@ -17,7 +17,7 @@ public class RulesListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		container.removeAll();
-		rulesPannel = new ScoresPannel();
+		rulesPannel = new RulesPannel();
 		container.add(rulesPannel);
 		container.revalidate();
 		

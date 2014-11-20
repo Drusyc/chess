@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pieces.Piece;
-import pieces.Pion;
 
 public class Plateau {
     // unique instance de la classe plateau

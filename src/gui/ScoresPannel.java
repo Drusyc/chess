@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 public class ScoresPannel extends JPanel {
 
 	public ScoresPannel() {
-		// TODO Auto-generated constructor stub
 		this.setLayout(new BorderLayout());
 		this.setBackground(Color.white);
 		
