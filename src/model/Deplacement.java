@@ -28,7 +28,7 @@ public class Deplacement implements Visiteur {
 		if(p.getColor()==Couleur.COLOR_WHITE){
 			if(init.getX()==dest.getX()){ // mouvement
 				if((init.getY()-1)==dest.getY()&& dest.getY()>=0){ //coordonées valides
-					if(dest.getPiece()==null){ //on peut déplacer
+					if(!dest.isOccupee()){ //on peut déplacer
 						dest.setPiece(p);
 						//dest.informe() 
 					}
@@ -49,7 +49,7 @@ public class Deplacement implements Visiteur {
 			
 			if(init.getX()==dest.getX()){ // mouvement
 				if((init.getY()+1)==dest.getY()&& dest.getY()<=7){ //coordonées valides
-					if(dest.getPiece()==null){ //on peut déplacer
+					if(!dest.isOccupee()){ //on peut déplacer
 						dest.setPiece(p);
 						//dest.informe() 
 					}
@@ -73,21 +73,39 @@ public class Deplacement implements Visiteur {
 	public void visite(Tour p) {
 		Case init = p.getCase();
 		boolean valid = true;
+		Plateau board = dest.getBoard();
 		
 		if(init.getX()==dest.getX()){ // mouvement vertical
-			Plateau board = dest.getBoard();
 			
 			if (init.getY()>dest.getY()){
-				for(int i=init.getY()-1; i<dest.getY(); i++)
-					valid = valid & board.getIJ(init.getX(),i); 
+				for(int i=init.getY()-1; i>dest.getY(); i--)
+					valid = valid & !(board.getIJ(init.getX(),i).isOccupee()); 
+			}
+			else{
+				for(int i=init.getY()+1; i<dest.getY(); i++)
+					valid = valid & !(board.getIJ(init.getX(),i).isOccupee()); 
 			}
 			
 		}
 		else
 			if(init.getY()==dest.getY()){ // mouvement horisontal
 				
+				if (init.getX()>dest.getX()){
+					for(int i=init.getX()-1; i>dest.getX(); i--)
+						valid = valid & !(board.getIJ(i, init.getY()).isOccupee()); 
+				}
+				else{
+					for(int i=init.getX()+1; i<dest.getX(); i++)
+						valid = valid & !(board.getIJ(i, init.getY()).isOccupee()); 
+				}
 			}
 		
+		if(valid){
+			if(dest.isOccupee() && dest.getPiece().getColor()!=p.getColor())
+				dest.detruirePiece(); //on a pris la piece adverse
+			
+			dest.setPiece(p);
+		}
 	}
 
 	@Override
