@@ -25,7 +25,10 @@ public class GamePannel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		g.drawImage(this.imgBackground, 0, 0, null);
 		for (Piece piece : ChessGui.gui_pieces) {
-			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+			g.drawImage(piece.getImage(), ChessGui.BOARD_START_X + ChessGui.TILE_OFFSET_X * piece.getCase().getY(),
+					ChessGui.BOARD_START_Y + ChessGui.TILE_OFFSET_Y *piece.getCase().getX(), null);
+			
+
 		}
 	}
 	

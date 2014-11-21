@@ -1,7 +1,6 @@
 package etat;
 
 import gui.ChessGui;
-import gui.GamePannel;
 import plateau.Plateau;
 
 public class Main {
@@ -16,7 +15,7 @@ public class Main {
 			
 		/* L'état passe à jeuON */
 		e.lancerPartie();
-			
+		
 		/* Création du plateau + les pièces */
 
 		Plateau board = Plateau.instance();
