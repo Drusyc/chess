@@ -6,7 +6,7 @@
 \\d'informer le plateau qu'une pièce a été déplacée, et le seul lien entre Pièce et Plateau était case. Puis cela prend du sens qu'une case observe si 
 \\elle possède une pièce ou non.
 \\On peut déplacer les pièces, même si elles réagissent parfois bizarrement. La vérification des déplacements spéciaux pour chaque pièce mais n'a pas été 
-\\utilisée dans le programme.
+\\utilisée dans le programme par manque de temps.
 \\On peut afficher un tableau des scores et une page des règles.
 
 
