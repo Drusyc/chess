@@ -18,7 +18,7 @@ public class GamePannel extends JPanel {
 
 	public GamePannel() {
 		this.imgBackground = new ImageIcon("img/board.png").getImage();
-		this.paintComponent(getGraphics(), board, pieces);
+		//this.paintComponent(getGraphics(), board, pieces);
 	}
 	
 
