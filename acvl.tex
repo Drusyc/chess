@@ -1,12 +1,8 @@
-\documentclass[11pt,a4paper]{report}
-\usepackage{graphicx}
+\documentclass[12pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage[francais]{babel}
-\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
-
 \title{ACVL}
 \title{Réalisation d'un jeu d'échec}
 \author{SALL Amadou \and BRAZOUSKAYA Darya \and ARNAUD Alexia \and GUNTZ Thomas }
@@ -57,69 +53,27 @@ A la fin d’un tour, le  joueur dont le roi est mis en échec et mat a perdu.
 En fin de partie, une fenêtre récapitulant les scores s’affichent. Cette fenêtre contient le nom du vainqueur et le nombre de coups joué.
 
 \maketitle
-\chapter*{Documents d'analyse}
-\section*{Cas d'utilisation du jeu}
-\begin{description}
-    \item[Interface graphique ] :
-  \begin{itemize}
-      \item Quitter système
-      \item Pause
-      \item Abandonner partie
-      \item Modifier les options
-      \item Ecrire les logins des deux utilisateurs
-  \end{itemize}
+\chapter*{Cas d'utilisation du jeu}
 
-\item[Moteur de jeu] : 
-\begin{itemize}
-    \item Choisir une pièce
-\item Déplacer une pièce
-\item Prendre une pièce adversaire
-\item Choisir case valide
-\end{itemize}
+\section*{Interface graphique} 
+Quitter système
+\\Pause
+\\Abandonner partie
+\\Modifier les options
+\\Ecrire les logins des deux utilisateurs
 
-\item[Gestion du temps] : 
-\begin{itemize}
-    \item Décrémenter timer
-    \item Changer le joueur actuel
-\end{itemize}
-\end{description}
+\section*{Moteur de jeu}
+Choisir une pièce
+\\Déplacer une pièce
+\\Prendre une pièce adversaire
+\\Choisir case valide
 
-\section*{Diagrammes de séquence}
-\input{seq.tex}
-\clearpage
-\section*{Diagramme de classe}
-\begin{figure*}[ht]
-\begin{center}
-  \includegraphics[width = 35em, height=51em]{images/classe/Diagrammedeclasses.png}
-\end{center}
-\end{figure*}
+\section*{Gestion du Temps}
+Décrémenter timer
+\\Changer le joueur actuel
 
-\chapter*{Documents de conception}
-\section*{Architecture logique du logiciel : MVC}
-On a choisi ce modèle car :
-\begin{itemize}
-    \item il y a beaucoup d'interactions avec l’utilisateur à travers l’IG susceptible de modifier la vue en
-  interprétant les requêtes
-    \item certains mécanismes (règles du jeu) doivent interagir entre contrôleur et la vue, ce qui n’est pas possible avec une architecture en couche.
-\end{itemize}
+
 \maketitle
-\section*{Description de l'incrément choisi}
-\begin{description}
-    \item[IG :] en 2D; fenêtre des scores ; fenêtre des règles du jeu ; fenêtre de jeu
-\item[Mode de jeu :] 2 joueurs
-\item[Moteur de jeu :] sélection d'une case jouable ; prise d'une pièce adverse ; mouvements classiques ; échec/échec et mât 
-
-\end{description}
-\section*{Diagramme d'états-transition}
-\input{plop.tex}
-\clearpage
-
-\section*{Diagramme de classes logicielles}
-\begin{figure*}[ht]
-\begin{center}
-  \includegraphics[width = 35em, height=50em]{images/classe/Diagrammedeclasseslogiciel.png}
-\end{center}
-\end{figure*}
 \chapter*{Manuel de l'utilisateur pour l'incrément}
 
 \section*{Débuter une partie}
@@ -146,6 +100,14 @@ Cliquer sur le menu {\it Scores}.
 \section*{Problèmes rencontrés}
 Nous avons utilisé ArgoUML pour construire les diagrammes de classes et les diagrammes d'états-transitions. Ce logiciel est facile à prendre en main mais le tracé des diagrammes de classes a été laborieux. En effet le déplacement des flèches est délicat à réaliser.
 \\Pour les diagrammes de séquence nous avons utilisé \"?\", il était plus facile de tracer les diagrammes séquences qu'avec ArgoUML.
+\\
+\\Le programme n'a pas été entièrement réalisé suite à des problèmes d'implémentations. Nous avons rencontré de nombreaux problèmes liés
+\\au langage Java (affichage/ré-affichage) pour l'interface graphique. Beaucoup de temps a été perdu pour l'interface graphique.
+\\C'est pourquoi l'ensemble des fonctionnalités de l'incrément n'ont pas pu toutes êtres codées : toutes classes du diagramme de classe ont été implémentées.\\Cependant il manque quelques fonctionnalitées dans les classes "jeuON" et dans "pièces" pour le déplacement des pièces.
+\\Les patrons Visiteurs/Observateurs/Etats ont été implémentés.
+\\Nous avons remarqué que, pour le patron visiteur, case devait elle aussi être Observateur de Pièce, et pas seulement Pièce. Nous avions besoin de pouvoir 
+\\d'informer le plateau qu'une pièce a été déplacée, et le seul lien entre Pièce et Plateau était case. Puis cela prend du sens qu'une case observe si 
+\\elle possède une pièce ou non.
 
 
 \section*{Solutions apportées}

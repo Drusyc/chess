@@ -19,7 +19,7 @@ public class Main {
 		g.addMouseMotionListener(aa);
 		
 		
-		
+
 		/* Tant que l'user ne click pas sur "new game "*/
 		while(!g.getEtat()){}
 		
@@ -52,10 +52,9 @@ public class Main {
 		*/
 
 		
-	
-		
-		
-		
+
+		g.repaint();
+
 	}
 
 }
