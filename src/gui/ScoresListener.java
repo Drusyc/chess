@@ -5,7 +5,7 @@ import java.awt.Container;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-
+// Defines the action performed when the user clicks on the Scores menu
 public class ScoresListener implements MenuListener {
 
 	private Container container;
@@ -20,6 +20,7 @@ public class ScoresListener implements MenuListener {
 		scoresPannel = new ScoresPannel();
 		container.add(scoresPannel);
 		container.revalidate();
+		ChessGui.etat = false;
 	}
 	@Override
 	public void menuCanceled(MenuEvent arg0) {

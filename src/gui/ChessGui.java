@@ -18,15 +18,20 @@ import javax.swing.JPanel;
 import pieces.Piece;
 import plateau.Plateau;
 
-/**
- * all x and y coordinates point to the upper left position of a component all
- * lists are treated as 0 being the bottom and size-1 being the top piece
- * 
- */
 
 
+// the origin of the axis is at the upper left corner of the window
 public class ChessGui extends JPanel {
-
+	
+	public static boolean etat = false;
+	
+	public boolean getEtat(){
+		return etat;
+	}
+//	public void setEtat(boolean etat){
+//		this.etat = etat;
+//	}
+	
 	private static final long serialVersionUID = 3114147670071466558L;
 
 	private static final int BOARD_START_X = 301;
@@ -44,12 +49,10 @@ public class ChessGui extends JPanel {
 	//private List<Piece> pieces = new ArrayList<Piece>();
 
 	public ChessGui() {
-		// load and set background image
+		// background image
 		this.imgBackground = new ImageIcon("img/board.png").getImage();
 
 //		// create and place pieces
-//		//
-//		// rook, knight, bishop, queen, king, bishop, knight, and rook
 //		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 0,
 //				BOARD_START_Y + TILE_OFFSET_Y * 7);
 //		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 1,
@@ -94,11 +97,11 @@ public class ChessGui extends JPanel {
 //		}
 
 
-		// create application frame and set visible
-		//
+		// Frame
 		JFrame f = new JFrame();
 		container = f.getContentPane();
 
+		// Menu
 		JMenuBar menu = new JMenuBar();
 		
 		JMenu file = new JMenu("File");
@@ -110,6 +113,8 @@ public class ChessGui extends JPanel {
 		
 		menu.add(file);
 		menu.add(scores);
+		
+		// Listeners
 		ScoresListener listenerScores = new ScoresListener(container);
 		scores.addMenuListener(listenerScores);
 		RulesListener listenerRules = new RulesListener(container);
@@ -125,14 +130,7 @@ public class ChessGui extends JPanel {
 	
 	}
 
-//	/**
-//	 * create a game piece
-//	 * 
-//	 * @param color color constant
-//	 * @param type type constant
-//	 * @param x x position of upper left corner
-//	 * @param y y position of upper left corner
-//	 */
+	// Creates a game piece
 //	private void createAndAddPiece(Couleur color, TypePiece type, int x, int y) {
 //		Case ca = new Case();
 //		ca.setX(x);
@@ -163,6 +161,38 @@ public class ChessGui extends JPanel {
 //		}
 //		this.pieces.add(piece);
 //	}
+
+
+	// Loads image for given color and type. This method translates the color and
+	// type information into a filename and loads that particular file.
+//	private Image getImageForPiece(Couleur color, TypePiece type) {
+//		String filename = "";
+//
+//		filename += (color == Couleur.COLOR_WHITE ? "w" : "b");
+//		switch (type) {
+//			case TYPE_BISHOP:
+//				filename += "b";
+//				break;
+//			case TYPE_KING:
+//				filename += "k";
+//				break;
+//			case TYPE_KNIGHT:
+//				filename += "n";
+//				break;
+//			case TYPE_PAWN:
+//				filename += "p";
+//				break;
+//			case TYPE_QUEEN:
+//				filename += "q";
+//				break;
+//			case TYPE_ROOK:
+//				filename += "r";
+//				break;
+//		}
+//		filename += ".png";
+//		return new ImageIcon("img/" + filename).getImage();
+//	}
+	
 //
 //	/**
 //	 * load image for given color and type. This method translates the color and
