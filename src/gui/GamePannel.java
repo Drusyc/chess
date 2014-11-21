@@ -1,29 +1,32 @@
 package gui;
 
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
+
+import java.awt.Graphics;
 import java.awt.Image;
+import java.util.List;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import enumeration.Couleur;
-import enumeration.TypePiece;
+import pieces.Piece;
+import plateau.Plateau;
 
+@SuppressWarnings("serial")
 public class GamePannel extends JPanel {
-	//private Image imgBackground;
+	private Image imgBackground;
+
+	
 	public GamePannel() {
-		this.setLayout(new BorderLayout());
-		this.setBackground(Color.white);
-		
-		JLabel intro = new JLabel("test!");
-		intro.setHorizontalAlignment(JLabel.CENTER);
-		Font fIntro = new Font("Serif", Font.BOLD,20);
-		intro.setFont(fIntro);
-		this.add(intro, BorderLayout.CENTER);
+		this.imgBackground = new ImageIcon("img/board.png").getImage();
+	}
+
+	
+	protected void paintComponent(Graphics g, Plateau board, List<Piece>  pieces) {
+		g.drawImage(this.imgBackground, 0, 0, null);
+		for (Piece piece : pieces) {
+			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+		}
 	}
 
 }
