@@ -1,5 +1,4 @@
 package etat;
-import plateau.Plateau;
 import enumeration.Couleur;
 
 /*
@@ -15,14 +14,13 @@ public class jeuON extends Etat{
 	
 	static private Joueur joueur1;
 	static private Joueur joueur2;
-	static private Plateau board;
 		
 	
 	static Etat initial () {
 		joueur1 = new Joueur(Couleur.COLOR_WHITE, "joueur_1");	
 		joueur2 = new Joueur(Couleur.COLOR_BLACK, "joueur_2");
 		
-		board = Plateau.instance();
+		//board = Plateau.instance();
 		
 		return state;
 	}
@@ -45,8 +43,11 @@ public class jeuON extends Etat{
 		if (j.getColor() == Couleur.COLOR_WHITE) {
 			//deplacer que les blancs
 			
-			
-			//piece_selectionnee.deplace
+			/*
+			 * Appelle le visiteur de la pièce à déplacer
+			 * Piece_selectionnee.deplace
+			 * 
+			 */
 		} else {
 			//..
 		}
