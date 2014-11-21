@@ -11,6 +11,8 @@ import pieces.Tour;
 
 import plateau.*;
 
+
+
 public class Deplacement implements Visiteur {
     
 	Case dest;
@@ -72,11 +74,11 @@ public class Deplacement implements Visiteur {
 	@Override
 	public void visite(Tour p) {
 		Case init = p.getCase();
-		boolean valid = true;
+		boolean valid = false;
 		Plateau board = dest.getBoard();
 		
 		if(init.getX()==dest.getX()){ // mouvement vertical
-			
+			valid = true;
 			if (init.getY()>dest.getY()){
 				for(int i=init.getY()-1; i>dest.getY(); i--)
 					valid = valid & !(board.getIJ(init.getX(),i).isOccupee()); 
@@ -89,7 +91,7 @@ public class Deplacement implements Visiteur {
 		}
 		else
 			if(init.getY()==dest.getY()){ // mouvement horisontal
-				
+				valid = true;
 				if (init.getX()>dest.getX()){
 					for(int i=init.getX()-1; i>dest.getX(); i--)
 						valid = valid & !(board.getIJ(i, init.getY()).isOccupee()); 
@@ -110,14 +112,38 @@ public class Deplacement implements Visiteur {
 
 	@Override
 	public void visite(Fou p) {
-		// TODO Auto-generated method stub
+		Case init = p.getCase();
+		boolean valid = true;
+		Plateau board = dest.getBoard();
+		
+		if(Math.max(init.getX(),dest.getX())-Math.min(init.getX(),dest.getX())==
+				Math.max(init.getY(),dest.getY())-Math.min(init.getY(),dest.getY())){
+			
+		int deplX = (init.getX()<dest.getX())?1:-1;	
+		int deplY = (init.getY()<dest.getY())?1:-1;	
+		int j = init.getY(); 
+			
+		for(int i=init.getX(); i!=dest.getX(); i=i+deplX){
+				valid = valid & (!(board.getIJ(i+deplX,j+deplY).isOccupee()) || ((i+deplX) == dest.getX())); 
+				 j=j+deplY;
+		}
+		
+		if(valid){
+			if(dest.isOccupee() && dest.getPiece().getColor()!=p.getColor())
+				dest.detruirePiece(); //on a pris la piece adverse
+			
+			dest.setPiece(p);
+		}
+	}
+		
 		
 	}
 
 	@Override
 	public void visite(Reine p) {
 		// TODO Auto-generated method stub
-		
+		visite((Fou)((Piece)p));
+		visite((Tour)((Piece)p));
 	}
 
 	@Override
