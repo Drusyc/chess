@@ -1,4 +1,5 @@
 \documentclass[12pt,a4paper]{report}
+\usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -71,7 +72,12 @@ Choisir une pièce
 \section*{Gestion du Temps}
 Décrémenter timer
 \\Changer le joueur actuel
-
+\newpage
+\section*{Diagrammes de séquence}
+\input{seq.tex}
+\newpage
+\section*{Diagramme de classe}
+\input{classeanalyse.tex}
 \maketitle
 \chapter*{Architecture logique du logiciel}
 \section*{Modèle-Vue-Contrôleur}
@@ -84,7 +90,12 @@ On a choisi ce modèle car :
 {\tt IG} : en 2D; fenêtre des scores ; fenêtre des règles du jeu ; fenêtre de jeu
 \\{\tt Mode de jeu} : 2 joueurs
 \\{\tt Moteur de jeu} : sélection d'une case jouable ; prise d'une pièce adverse ; mouvements classiques ; échec/échec et mât 
-
+\newpage
+\section*{Diagramme d'états-transition}
+\input{plop.tex}
+\newpage
+\section*{Diagramme de classe}
+\input{classe.tex}
 \maketitle
 \chapter*{Manuel de l'utilisateur pour l'incrément}
 
