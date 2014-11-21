@@ -190,6 +190,14 @@ public class Plateau {
         matriceCases[7][7] = caze;
         this.pieces.add(piece);
         
+        for(int j=2; j<=5; j++)
+        	for(int i=0; i<8; i++){
+        		caze = new Case(i, j);
+                caze.setOccupation(false);
+                caze.setBoard(this);
+                matriceCases[i][j] = caze;
+        	}
+        		
         this.todo_maj = true;
     }
 
