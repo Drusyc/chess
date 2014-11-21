@@ -16,19 +16,21 @@ public class Main {
 //			e.lancerPartie();
 //			while()
 			
-
+			//Plateau board = Plateau.instance();
+			//g.setPiece(board);
+			
 			/* Tant que l'user ne click pas sur "new game "*/
-			while(!g.getEtat()){}
+			int i=0;
+			while(!g.getEtat()){i++;System.out.println("a");}
 			
 			/* L'état passe à jeuON */
 			e.lancerPartie();
+			System.out.println("olol");
 			
 			/* Création du plateau + les pièces */
 			Plateau board = Plateau.instance();
-			
-			
-//			g.setPiece(board);
-//			//g.paintComponent(g, board);
+			g.setPiece(board);
+			//g.paintComponent(g, board);
 			
 
 	}
