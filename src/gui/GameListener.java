@@ -15,10 +15,11 @@ public class GameListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		container.removeAll();
+//		container.removeAll();
 		gamePannel = new GamePannel();
 		container.add(gamePannel);
 		container.revalidate();
+		container.repaint();
 		ChessGui.etat = true;
 		
 	}

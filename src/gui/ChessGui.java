@@ -41,6 +41,7 @@ public class ChessGui extends JPanel {
 	private static final int TILE_OFFSET_X = 50;
 	private static final int TILE_OFFSET_Y = 50;
 	
+	public GamePannel gp;
 	
 
 	private Image imgBackground;
@@ -215,6 +216,19 @@ public class ChessGui extends JPanel {
 			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
 		}
 	}
+	
+	@Override
+	public void paintComponent(Graphics g) {
+		for (Piece piece : gui_pieces) {
+			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+		}
+		System.out.println("paint");
+	}
+
+//	@Override
+//	public void repaint() {
+//		this.paintComponents(this.getGraphics());
+//	}
 	
 	public void draw (Plateau board) {
 		Graphics g = this.getGraphics();
