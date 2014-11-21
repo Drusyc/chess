@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+.project
+/bin/
+=======
 *.class
 *idea
 *md
 *iml
+>>>>>>> branch 'master' of git@github.com:Drusyc/chess.git

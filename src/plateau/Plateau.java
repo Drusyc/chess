@@ -4,6 +4,12 @@ package plateau;
 import enumeration.Couleur;
 import pieces.*;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pieces.Piece;
+
 public class Plateau {
     // unique instance de la classe plateau
     final private static Plateau plateau = new Plateau();
@@ -31,11 +37,27 @@ public class Plateau {
             Piece piece = new Pion("Pion", Couleur.COLOR_WHITE,caze);
             piece.setCase(caze);
             matriceCases[j][6] = caze;
+	    /*    l'instanciation de la classe Plateau depuis une autre classe
+	     */
+	    
+    private List<Piece> pieces_detruites = new ArrayList<Piece>();
+    
+    private Plateau() {
+        matriceCases = new Case[64][64];
+        // Placeme
+        for (int i = 0; i < 8; i++) {
+                Case caze = new Case();
+                caze.setX(1); caze.setY(i);
+                caze.setOccupation(true);
+                //Piece piece = new Pion();
+                //caze.setPiece(piece);
+                matriceCases[1][i] = caze;
 
         }
         for (int j = 0; j < 8; j++) {
             Case caze = new Case(j,1);
             caze.setOccupation(true);
+
             Piece piece = new Pion("Pion",Couleur.COLOR_BLACK,caze);
             piece.setCase(caze);
             matriceCases[j][1] = caze;
@@ -134,7 +156,18 @@ public class Plateau {
         piece.setCase(caze);
         matriceCases[7][0] = caze;
 
+            //pieces.Piece piece = new Pion();
+            //caze.setPiece(piece);
+            matriceCases[1][i] = caze;
+            }
     }
 
+    public void add_Detruite (Piece piece){
+    	this.pieces_detruites.add(piece);
+    }
+    
+    public Case getIJ (int i, int j) {
+    	return this.matriceCases[i][j];
+    }
 
 }
