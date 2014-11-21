@@ -5,7 +5,7 @@ import java.awt.Image;
 import plateau.Case;
 import enumeration.Couleur;
 import enumeration.TypePiece;
-import model.Visiteur;
+import visiteur.Visiteur;
 
 /**
  * Created by amadou on 17/11/14.

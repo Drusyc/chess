@@ -2,7 +2,7 @@ package pieces;
 
 import java.awt.Image;
 
-import model.Visiteur;
+import visiteur.Visiteur;
 import enumeration.Couleur;
 import enumeration.TypePiece;
 import plateau.Case;
