@@ -6,6 +6,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.List;
 
 import pieces.Piece;
+import plateau.Case;
 
 public class PiecesDragAndDropListener implements MouseListener, MouseMotionListener {
 
@@ -39,7 +40,7 @@ public class PiecesDragAndDropListener implements MouseListener, MouseMotionList
 				// to jump with it's upper left corner to the current mouse
 				// position
 				//
-				System.out.println("aa");
+				//System.out.println("aa");
 				this.dragOffsetX = x - (ChessGui.BOARD_START_X + ChessGui.TILE_OFFSET_X *piece.getCase().getX());
 				this.dragOffsetY = y - (ChessGui.BOARD_START_Y + ChessGui.TILE_OFFSET_Y *piece.getCase().getY());
 				this.dragPiece = piece;
@@ -76,8 +77,10 @@ public class PiecesDragAndDropListener implements MouseListener, MouseMotionList
 	@Override
 	public void mouseDragged(MouseEvent evt) {
 		if(this.dragPiece != null){
-			this.dragPiece.getCase().setX((int)(-ChessGui.BOARD_START_X+evt.getPoint().x - this.dragOffsetX)/ChessGui.TILE_OFFSET_X);
-			this.dragPiece.getCase().setY((int)(-ChessGui.BOARD_START_Y+evt.getPoint().y - this.dragOffsetY)/ChessGui.TILE_OFFSET_Y);
+		
+			Case n = dragPiece.getCase().getBoard().getIJ((int)((-ChessGui.BOARD_START_X+evt.getPoint().x - this.dragOffsetX)/ChessGui.TILE_OFFSET_X),
+					((int)(-ChessGui.BOARD_START_Y+evt.getPoint().y - this.dragOffsetY)/ChessGui.TILE_OFFSET_Y));
+			this.dragPiece.setCase(n);
 			System.out.println(dragPiece.getCase().getX()+"*"+dragPiece.getCase().getY()+"\n");
 			this.chessGui.repaint();
 		}

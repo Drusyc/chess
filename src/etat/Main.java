@@ -10,7 +10,7 @@ public class Main {
 			
 		Etat e = new jeuOFF();
 		ChessGui g = new ChessGui();
-		
+
 		Plateau board = Plateau.instance();
 		g.setPiece(board);
 		PiecesDragAndDropListener aa = new PiecesDragAndDropListener(g.gui_pieces,g);
@@ -24,7 +24,7 @@ public class Main {
 		e.lancerPartie();
 		
 		/* Création du plateau + les pièces */
-
+		
 		//Plateau board = Plateau.instance();
 		//g.setPiece(board);
 		
