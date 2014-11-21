@@ -84,7 +84,7 @@ public class Case extends Observable {
     }
 
     @Override
-    public void inform() {
+    public void informe() {
         for (Observateur obs : this.listeObservateurs) {
             obs.mAj();
         }
