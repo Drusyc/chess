@@ -19,7 +19,7 @@ public class PiecesDragAndDropListener implements MouseListener, MouseMotionList
 	
 
 	public PiecesDragAndDropListener(List<Piece> pieces, ChessGui chessGui) {
-		this.pieces = chessGui.gui_pieces;
+		this.pieces = ChessGui.gui_pieces;
 		this.chessGui = chessGui;
 	}
 
@@ -40,7 +40,7 @@ public class PiecesDragAndDropListener implements MouseListener, MouseMotionList
 				// to jump with it's upper left corner to the current mouse
 				// position
 				//
-				//System.out.println("aa");
+				System.out.println("Click sur pièce");
 				this.dragOffsetX = x - (ChessGui.BOARD_START_X + ChessGui.TILE_OFFSET_X *piece.getCase().getX());
 				this.dragOffsetY = y - (ChessGui.BOARD_START_Y + ChessGui.TILE_OFFSET_Y *piece.getCase().getY());
 				this.dragPiece = piece;

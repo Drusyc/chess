@@ -10,16 +10,21 @@ public class Main {
 			
 		Etat e = new jeuOFF();
 		ChessGui g = new ChessGui();
-
+		
+		/* Création du plateau + les pièces */
 		Plateau board = Plateau.instance();
 		g.setPiece(board);
-		PiecesDragAndDropListener aa = new PiecesDragAndDropListener(g.gui_pieces,g);
+		PiecesDragAndDropListener aa = new PiecesDragAndDropListener(ChessGui.gui_pieces,g);
 		g.addMouseListener(aa);
 		g.addMouseMotionListener(aa);
 		
+		
+		
 		/* Tant que l'user ne click pas sur "new game "*/
 		while(!g.getEtat()){}
-			
+		
+		
+		//g.repaint();
 		/* L'état passe à jeuON */
 		e.lancerPartie();
 		
@@ -45,12 +50,12 @@ public class Main {
 			
 		}
 		*/
-		/* Création du plateau + les pièces */
+
 		
-		//Plateau board = Plateau.instance();
-		//g.setPiece(board);
+	
 		
-		//g.repaint();
+		
+		
 	}
 
 }

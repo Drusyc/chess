@@ -93,29 +93,15 @@ public class ChessGui extends JPanel {
 	public void setPiece (Plateau board) {
 		ChessGui.gui_pieces = board.pieces;
 	}
-	
 
-	public void paintComponent(Graphics g, Plateau board) {
-		g.drawImage(this.imgBackground, 0, 0, null);
-		for (Piece piece : board.pieces) {
-			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
-		}
-	}
 	
 	@Override
 	public void paintComponent(Graphics g) {
 		for (Piece piece : gui_pieces) {
-			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+			g.drawImage(piece.getImage(), BOARD_START_X + TILE_OFFSET_X *piece.getCase().getX(), BOARD_START_Y +TILE_OFFSET_Y *piece.getCase().getY(), null);
 		}
 		System.out.println("paint");
 	}
 
-	
-	public void draw (Plateau board) {
-		Graphics g = this.getGraphics();
-		g.drawImage(this.imgBackground, 0, 0, null);
-
-		this.paintComponents(g);
-	}
 	
 }

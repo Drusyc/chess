@@ -52,9 +52,10 @@ public abstract class Piece {
 	}
 	
 	public void setCase(Case c) {
-		this.actual_case.setPiece(null);
+		if (c!=null)
+			{this.actual_case.setPiece(null);
 		this.actual_case = c;
-		this.actual_case.setPiece(this);
+		this.actual_case.setPiece(this);}
 	}
 	
 	public int getWidth() {
