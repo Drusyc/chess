@@ -17,14 +17,18 @@ public class Main {
 //			while()
 			
 
-		
-			while(!g.getEtat()){
-				
-			}
+			/* Tant que l'user ne click pas sur "new game "*/
+			while(!g.getEtat()){}
 			
+			/* L'état passe à jeuON */
+			e.lancerPartie();
+			
+			/* Création du plateau + les pièces */
 			Plateau board = Plateau.instance();
-			g.setPiece(board);
-			//g.paintComponent(g, board);
+			
+			
+//			g.setPiece(board);
+//			//g.paintComponent(g, board);
 			
 
 	}
