@@ -35,11 +35,11 @@ public class ChessGui extends JPanel {
 	
 	private static final long serialVersionUID = 3114147670071466558L;
 
-	private static final int BOARD_START_X = 301;
-	private static final int BOARD_START_Y = 51;
+	protected static final int BOARD_START_X = 301;
+	protected static final int BOARD_START_Y = 51;
 
-	private static final int TILE_OFFSET_X = 50;
-	private static final int TILE_OFFSET_Y = 50;
+	protected static final int TILE_OFFSET_X = 50;
+	protected static final int TILE_OFFSET_Y = 50;
 	
 	
 

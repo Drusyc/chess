@@ -17,6 +17,9 @@ public class Deplacement implements Visiteur {
     
 	Case dest;
     
+    public void deplace (Piece p){
+    
+    }
     
     public void prendrePiece_deplace (Piece p){
     	if(dest.isOccupee() && dest.getPiece().getColor()!=p.getColor())

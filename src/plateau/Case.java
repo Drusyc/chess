@@ -62,10 +62,7 @@ public class Case extends Observable {
     	return this.piece;
     }
 
-    public void informe() {
-    }
-
-
+   
     
     public void informe () {
     	this.board.maj();
