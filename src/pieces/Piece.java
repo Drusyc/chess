@@ -17,7 +17,7 @@ public abstract class Piece {
 
 	private Image img;
 	
-	abstract void appliquer (Visiteur v);
+	public abstract void appliquer (Visiteur v);
 	
 	private Case actual_case;
 	

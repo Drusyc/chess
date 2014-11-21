@@ -17,8 +17,8 @@ public class Deplacement implements Visiteur {
     
 	Case dest;
     
-    public void deplace (Piece p){
-    
+    public Deplacement (Case d){
+    	dest = d;
     }
     
     public void prendrePiece_deplace (Piece p){

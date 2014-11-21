@@ -15,7 +15,7 @@ public class Pion extends Piece {
 		// TODO Auto-generated constructor stub
 	}
 
-	void appliquer(Visiteur v) {
+	public void appliquer(Visiteur v) {
 		v.visite(this);
 		
 	}

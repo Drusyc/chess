@@ -7,6 +7,8 @@ import java.util.List;
 
 import pieces.Piece;
 import plateau.Case;
+import visiteur.Deplacement;
+import visiteur.Visiteur;
 
 public class PiecesDragAndDropListener implements MouseListener, MouseMotionListener {
 
@@ -14,6 +16,7 @@ public class PiecesDragAndDropListener implements MouseListener, MouseMotionList
 	private ChessGui chessGui;
 	
 	private Piece dragPiece;
+	private Case PosDeb;
 	private int dragOffsetX;
 	private int dragOffsetY;
 	
@@ -71,6 +74,9 @@ public class PiecesDragAndDropListener implements MouseListener, MouseMotionList
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
+		/* a développer
+		 Visiteur c = new Deplacement(dragPiece.getCase());
+		dragPiece.appliquer(c);*/
 		this.dragPiece = null;
 	}
 
@@ -78,17 +84,23 @@ public class PiecesDragAndDropListener implements MouseListener, MouseMotionList
 	public void mouseDragged(MouseEvent evt) {
 		if(this.dragPiece != null){
 		
-			Case n = dragPiece.getCase().getBoard().getIJ((int)((-ChessGui.BOARD_START_X+evt.getPoint().x - this.dragOffsetX)/ChessGui.TILE_OFFSET_X),
-					((int)(-ChessGui.BOARD_START_Y+evt.getPoint().y - this.dragOffsetY)/ChessGui.TILE_OFFSET_Y));
+			int x = (int)((-ChessGui.BOARD_START_X+evt.getPoint().x - this.dragOffsetX)/ChessGui.TILE_OFFSET_X);
+			int y = (int)((-ChessGui.BOARD_START_Y+evt.getPoint().y - this.dragOffsetY)/ChessGui.TILE_OFFSET_Y);
+			
+			if(x>=0 && x<8 && y>=0 && y<8){
+			
+			Case n = dragPiece.getCase().getBoard().getIJ(x,y);
 			this.dragPiece.setCase(n);
 			System.out.println(dragPiece.getCase().getX()+"*"+dragPiece.getCase().getY()+"\n");
-			this.chessGui.repaint();
+			this.chessGui.repaint();}
 		}
 		
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {}
+	public void mouseClicked(MouseEvent arg0) {
+		PosDeb = dragPiece.getCase();
+	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {}

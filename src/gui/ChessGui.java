@@ -97,6 +97,7 @@ public class ChessGui extends JPanel {
 	
 	@Override
 	public void paintComponent(Graphics g) {
+		g.drawImage(this.imgBackground, 0, 0, null);
 		for (Piece piece : gui_pieces) {
 			g.drawImage(piece.getImage(), BOARD_START_X + TILE_OFFSET_X *piece.getCase().getX(), BOARD_START_Y +TILE_OFFSET_Y *piece.getCase().getY(), null);
 		}
