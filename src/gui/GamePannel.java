@@ -9,15 +9,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import pieces.Piece;
+import plateau.Plateau;
 
 @SuppressWarnings("serial")
 public class GamePannel extends JPanel {
 	private Image imgBackground;
 
-	
+
 	public GamePannel() {
 		this.imgBackground = new ImageIcon("img/board.png").getImage();
+		this.paintComponent(getGraphics(), board, pieces);
 	}
+	
 
 	@Override
 	protected void paintComponent(Graphics g) {
@@ -29,5 +32,5 @@ public class GamePannel extends JPanel {
 
 		}
 	}
-
+	
 }
