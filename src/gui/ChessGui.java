@@ -120,6 +120,7 @@ public class ChessGui extends JPanel {
 		RulesListener listenerRules = new RulesListener(container);
 		rules.addActionListener(listenerRules);
 		GameListener listenerGame = new GameListener(container);
+		
 		newGame.addActionListener(listenerGame);
 		
 		f.setJMenuBar(menu);
@@ -196,7 +197,16 @@ public class ChessGui extends JPanel {
 //	}
 	
 
+	
 	public void paintComponent(Graphics g, Plateau board) {
+		g.drawImage(this.imgBackground, 0, 0, null);
+		for (Piece piece : board.pieces) {
+			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+		}
+	}
+	
+	public void draw (Plateau board) {
+		Graphics g = this.getGraphics();
 		g.drawImage(this.imgBackground, 0, 0, null);
 		for (Piece piece : board.pieces) {
 			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
