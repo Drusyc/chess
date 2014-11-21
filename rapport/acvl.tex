@@ -144,11 +144,23 @@ Cliquer sur le menu {\it Scores}.
 \chapter*{Bilan sur les outils de modélisation utilisés}
 
 \section*{Problèmes rencontrés}
-Nous avons utilisé ArgoUML pour construire les diagrammes de classes et les diagrammes d'états-transitions. Ce logiciel est facile à prendre en main mais le tracé des diagrammes de classes a été laborieux. En effet le déplacement des flèches est délicat à réaliser.
-\\Pour les diagrammes de séquence nous avons utilisé \"?\", il était plus facile de tracer les diagrammes séquences qu'avec ArgoUML.
+Nous avons utilisé ArgoUML pour construire les diagrammes de classes et les diagrammes d'états-transitions. 
+Ce logiciel est facile à prendre en main mais le tracé des diagrammes de classes a été laborieux. 
+En effet le déplacement des flèches est délicat à réaliser.
+
+Pour les diagrammes de séquence nous avons utilisé , il était plus facile de tracer les diagrammes séquences qu'avec ArgoUML.
+
+Le programme n'a pas été entièrement réalisé suite à des problèmes d'implémentations. Nous avons rencontré de nombreaux problèmes liés
+au langage Java (affichage/ré-affichage) pour l'interface graphique. Beaucoup de temps a été perdu pour l'interface
+graphique.C'est pourquoi l'ensemble des fonctionnalités de l'incrément n'ont pas pu toutes êtres réalisées : toutes classes du diagramme de classe ont été implémentées.Cependant il manque quelques fonctionnalitées dans les classes "jeuON" et dans "pièces" pour le déplacement des pièces.
+
+Les patrons Visiteurs/Observateurs/Etats ont été implémentés. Nous avons remarqué que, pour le patron visiteur, Case
+devait elle aussi être Observateur de Pièce, et pas seulement Pièce. Nous avions besoin de pouvoir informer le plateau
+qu'une pièce a été déplacée, et le seul lien entre Pièce et Plateau était case. C'est donc logique qu'une case
+observe si il y une pièce dessus ou pas . On peut déplacer les pièces, même si elles réagissent parfois bizarrement. 
+La vérification des déplacements spéciaux pour chaque pièce mais n'a pas été 
+utilisée dans le programme par manque de temps.
+On peut afficher un tableau des scores et une page des règles.
 
 
-\section*{Solutions apportées}
-ArgoUML : beaucoup de patience et de self-control.
-\\:
 \end{document}
