@@ -1,7 +1,5 @@
 package pieces;
 
-import java.awt.Image;
-
 import plateau.Case;
 import enumeration.Couleur;
 import enumeration.TypePiece;
@@ -12,8 +10,8 @@ import visiteur.Visiteur;
 public class Pion extends Piece {
 	
 
-	public Pion(Image img,TypePiece t, Couleur co, Case ca) {
-		super(img,t, co, ca);
+	public Pion(TypePiece t, Couleur co, Case ca) {
+		super(t, co, ca);
 		// TODO Auto-generated constructor stub
 	}
 

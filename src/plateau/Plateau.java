@@ -25,25 +25,17 @@ public class Plateau {
     public Case[][] getMatriceCases() {
         return matriceCases;
     }
-
+    
+    private List<Piece> pieces_detruites = new ArrayList<Piece>();
+    public List<Piece> pieces = new ArrayList<Piece>();
+  
     /* constructeur privé de la classe Plateau pour interdire
         l'instanciation de la classe Plateau depuis une autre classe
          */
-    private Plateau() {
 
-        for (int j = 0; j < 8; j++) {
-            Case caze = new Case(j,6);
-            caze.setOccupation(true);
-            Piece piece = new Pion(TypePiece.TYPE_PAWN, Couleur.COLOR_WHITE,caze);
-            piece.setCase(caze);
-            matriceCases[j][6] = caze;
-	    /*    l'instanciation de la classe Plateau depuis une autre classe
-	     */
-	    
-    private List<Piece> pieces_detruites = new ArrayList<Piece>();
-    
     private Plateau() {
         matriceCases = new Case[8][8];
+        
         // Placement
         for (int i = 0; i < 8; i++) {
                 Case caze = new Case();
@@ -58,108 +50,129 @@ public class Plateau {
             Case caze = new Case(j,1);
             caze.setOccupation(true);
 
-            Piece piece = new Pion("Pion",Couleur.COLOR_BLACK,caze);
+            Piece piece = new Pion(TypePiece.TYPE_PAWN,Couleur.COLOR_BLACK,caze);
             piece.setCase(caze);
             matriceCases[j][1] = caze;
+            this.pieces.add(piece);
         }
 
         // Mis en place des rois
         Case caze = new Case(3,7);
         caze.setOccupation(true);
-        Piece piece = new Roi("Roi", Couleur.COLOR_WHITE,caze);
+        Piece piece = new Roi(TypePiece.TYPE_KING, Couleur.COLOR_WHITE,caze);
         piece.setCase(caze);
         matriceCases[3][7] = caze;
+        this.pieces.add(piece);
+        
         caze = new Case(3,0);
         caze.setOccupation(true);
-        piece = new Roi("Roi", Couleur.COLOR_BLACK,caze);
+        piece = new Roi(TypePiece.TYPE_KING, Couleur.COLOR_BLACK,caze);
         piece.setCase(caze);
         matriceCases[3][0] = caze;
+        this.pieces.add(piece);
 
         // Mis en place des reines
-         caze = new Case(4,7);
+        caze = new Case(4,7);
         caze.setOccupation(true);
-        piece = new Reine("Reine", Couleur.COLOR_WHITE,caze);
+        piece = new Reine(TypePiece.TYPE_QUEEN, Couleur.COLOR_WHITE,caze);
         piece.setCase(caze);
         matriceCases[4][7] = caze;
+        this.pieces.add(piece);
+        
         caze = new Case(4,0);
         caze.setOccupation(true);
-        piece = new Reine("Reine", Couleur.COLOR_BLACK,caze);
+        piece = new Reine(TypePiece.TYPE_QUEEN, Couleur.COLOR_BLACK,caze);
         piece.setCase(caze);
         matriceCases[4][0] = caze;
+        this.pieces.add(piece);
 
         // Mis en place des cavaliers
         caze = new Case(1,7);
         caze.setOccupation(true);
-        piece = new Cavalier("Cavalier", Couleur.COLOR_WHITE,caze);
+        piece = new Cavalier(TypePiece.TYPE_KNIGHT, Couleur.COLOR_WHITE,caze);
         piece.setCase(caze);
         matriceCases[1][7] = caze;
+        this.pieces.add(piece);
+        
         caze = new Case(6,7);
         caze.setOccupation(true);
-        piece = new Cavalier("Cavalier", Couleur.COLOR_WHITE,caze);
+        piece = new Cavalier(TypePiece.TYPE_KNIGHT, Couleur.COLOR_WHITE,caze);
         piece.setCase(caze);
         matriceCases[6][7] = caze;
+        this.pieces.add(piece);
 
         caze = new Case(1,0);
         caze.setOccupation(true);
-        piece = new Cavalier("Cavalier", Couleur.COLOR_BLACK,caze);
+        piece = new Cavalier(TypePiece.TYPE_KNIGHT, Couleur.COLOR_BLACK,caze);
         piece.setCase(caze);
         matriceCases[1][0] = caze;
+        this.pieces.add(piece);
+        
         caze = new Case(6,0);
         caze.setOccupation(true);
-        piece = new Cavalier("Cavalier", Couleur.COLOR_BLACK,caze);
+        piece = new Cavalier(TypePiece.TYPE_KNIGHT, Couleur.COLOR_BLACK,caze);
         piece.setCase(caze);
         matriceCases[6][0] = caze;
+        this.pieces.add(piece);
+        
 
         // Mis en place des Fous
         caze = new Case(2,7);
         caze.setOccupation(true);
-        piece = new Fou("Fou", Couleur.COLOR_WHITE,caze);
+        piece = new Fou(TypePiece.TYPE_BISHOP, Couleur.COLOR_WHITE,caze);
         piece.setCase(caze);
         matriceCases[3][7] = caze;
+        this.pieces.add(piece);
+        
         caze = new Case(5,7);
         caze.setOccupation(true);
-        piece = new Fou("Fou", Couleur.COLOR_WHITE,caze);
+        piece = new Fou(TypePiece.TYPE_BISHOP, Couleur.COLOR_WHITE,caze);
         piece.setCase(caze);
         matriceCases[5][7] = caze;
+        this.pieces.add(piece);
 
         caze = new Case(2,0);
         caze.setOccupation(true);
-        piece = new Fou("Fou", Couleur.COLOR_BLACK,caze);
+        piece = new Fou(TypePiece.TYPE_BISHOP, Couleur.COLOR_BLACK,caze);
         piece.setCase(caze);
         matriceCases[2][0] = caze;
+        this.pieces.add(piece);
+        
         caze = new Case(5,0);
         caze.setOccupation(true);
-        piece = new Fou("Fou", Couleur.COLOR_BLACK,caze);
+        piece = new Fou(TypePiece.TYPE_BISHOP, Couleur.COLOR_BLACK,caze);
         piece.setCase(caze);
         matriceCases[5][0] = caze;
+        this.pieces.add(piece);
 
         // Mis en place des Tours
         caze = new Case(0,7);
         caze.setOccupation(true);
-        piece = new Tour("Tour", Couleur.COLOR_WHITE,caze);
+        piece = new Tour(TypePiece.TYPE_ROOK, Couleur.COLOR_WHITE,caze);
         piece.setCase(caze);
         matriceCases[0][7] = caze;
+        this.pieces.add(piece);
+        
         caze = new Case(7,7);
         caze.setOccupation(true);
-        piece = new Tour("Tour", Couleur.COLOR_WHITE,caze);
+        piece = new Tour(TypePiece.TYPE_ROOK, Couleur.COLOR_WHITE,caze);
         piece.setCase(caze);
         matriceCases[7][7] = caze;
+        this.pieces.add(piece);
 
         caze = new Case(0,0);
         caze.setOccupation(true);
-        piece = new Tour("Tour", Couleur.COLOR_BLACK,caze);
+        piece = new Tour(TypePiece.TYPE_ROOK, Couleur.COLOR_BLACK,caze);
         piece.setCase(caze);
         matriceCases[0][0] = caze;
+        this.pieces.add(piece);
+        
         caze = new Case(7,0);
         caze.setOccupation(true);
-        piece = new Tour("Tour", Couleur.COLOR_BLACK,caze);
+        piece = new Tour(TypePiece.TYPE_ROOK, Couleur.COLOR_BLACK,caze);
         piece.setCase(caze);
         matriceCases[7][0] = caze;
-
-            //pieces.Piece piece = new Pion();
-            //caze.setPiece(piece);
-            matriceCases[1][i] = caze;
-            }
+        this.pieces.add(piece);
     }
 
     public void add_Detruite (Piece piece){

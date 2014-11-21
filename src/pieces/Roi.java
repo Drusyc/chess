@@ -10,8 +10,8 @@ import visiteur.Visiteur;
  * Created by amadou on 17/11/14.
  */
 public class Roi extends Piece {
-	public Roi(Image img,TypePiece t, Couleur co, Case ca) {
-		super(img,t, co, ca);
+	public Roi(TypePiece t, Couleur co, Case ca) {
+		super(t, co, ca);
 		// TODO Auto-generated constructor stub
 	}
 

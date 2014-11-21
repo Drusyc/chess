@@ -4,9 +4,7 @@ import java.util.Observable;
 
 import pieces.Piece;
 
-/**
- * Created by amadou on 17/11/14.
- */
+
 public class Case extends Observable {
     private int x;
     private int y;
@@ -15,6 +13,8 @@ public class Case extends Observable {
     
     public Case(int x, int y) {
         this.x = x;
+    }
+    
     private Plateau board;
     
     public Case() {

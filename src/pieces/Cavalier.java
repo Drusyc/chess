@@ -12,8 +12,8 @@ import visiteur.Visiteur;
  */
 public class Cavalier extends Piece {
 
-	public Cavalier(Image img,TypePiece t, Couleur co, Case ca) {
-		super(img,t, co, ca);
+	public Cavalier(TypePiece t, Couleur co, Case ca) {
+		super(t, co, ca);
 		// TODO Auto-generated constructor stub
 	}
 
