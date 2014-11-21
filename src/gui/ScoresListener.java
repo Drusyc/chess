@@ -5,7 +5,7 @@ import java.awt.Container;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-
+// Defines the action performed when the user clicks on the Scores menu
 public class ScoresListener implements MenuListener {
 
 	private Container container;

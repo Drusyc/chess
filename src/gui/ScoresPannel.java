@@ -7,7 +7,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+//Construction of the scores pannel
 @SuppressWarnings("serial")
 public class ScoresPannel extends JPanel {
 

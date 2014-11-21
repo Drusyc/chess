@@ -27,11 +27,8 @@ import pieces.Roi;
 import pieces.Tour;
 import plateau.Case;
 
-/**
- * all x and y coordinates point to the upper left position of a component all
- * lists are treated as 0 being the bottom and size-1 being the top piece
- * 
- */
+
+// the origin of the axis is at the upper left corner of the window
 public class ChessGui extends JPanel {
 
 	private static final long serialVersionUID = 3114147670071466558L;
@@ -51,61 +48,59 @@ public class ChessGui extends JPanel {
 	private List<Piece> pieces = new ArrayList<Piece>();
 
 	public ChessGui() {
-		// load and set background image
+		// background image
 		this.imgBackground = new ImageIcon("img/board.png").getImage();
 
-		// create and place pieces
-		//
-		// rook, knight, bishop, queen, king, bishop, knight, and rook
-		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 0,
-				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 1,
-				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 2,
-				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_KING, BOARD_START_X + TILE_OFFSET_X * 3,
-				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_QUEEN, BOARD_START_X + TILE_OFFSET_X * 4,
-				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 5,
-				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 6,
-				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 7,
-				BOARD_START_Y + TILE_OFFSET_Y * 7);
-		// pawns
-		for (int i = 0; i < 8; i++) {
-			createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_PAWN, BOARD_START_X + TILE_OFFSET_X * i,
-					BOARD_START_Y + TILE_OFFSET_Y * 6);
-		}
-
-		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 0,
-				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 1,
-				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 2,
-				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_QUEEN, BOARD_START_X + TILE_OFFSET_X * 3,
-				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_KING, BOARD_START_X + TILE_OFFSET_X * 4,
-				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 5,
-				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 6,
-				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 7,
-				BOARD_START_Y + TILE_OFFSET_Y * 0);
-		for (int i = 0; i < 8; i++) {
-			createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_PAWN, BOARD_START_X + TILE_OFFSET_X * i,
-					BOARD_START_Y + TILE_OFFSET_Y * 1);
-		}
+//		// create and place pieces
+//		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 0,
+//				BOARD_START_Y + TILE_OFFSET_Y * 7);
+//		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 1,
+//				BOARD_START_Y + TILE_OFFSET_Y * 7);
+//		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 2,
+//				BOARD_START_Y + TILE_OFFSET_Y * 7);
+//		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_KING, BOARD_START_X + TILE_OFFSET_X * 3,
+//				BOARD_START_Y + TILE_OFFSET_Y * 7);
+//		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_QUEEN, BOARD_START_X + TILE_OFFSET_X * 4,
+//				BOARD_START_Y + TILE_OFFSET_Y * 7);
+//		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 5,
+//				BOARD_START_Y + TILE_OFFSET_Y * 7);
+//		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 6,
+//				BOARD_START_Y + TILE_OFFSET_Y * 7);
+//		createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 7,
+//				BOARD_START_Y + TILE_OFFSET_Y * 7);
+//		// pawns
+//		for (int i = 0; i < 8; i++) {
+//			createAndAddPiece(Couleur.COLOR_WHITE, TypePiece.TYPE_PAWN, BOARD_START_X + TILE_OFFSET_X * i,
+//					BOARD_START_Y + TILE_OFFSET_Y * 6);
+//		}
+//
+//		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 0,
+//				BOARD_START_Y + TILE_OFFSET_Y * 0);
+//		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 1,
+//				BOARD_START_Y + TILE_OFFSET_Y * 0);
+//		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 2,
+//				BOARD_START_Y + TILE_OFFSET_Y * 0);
+//		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_QUEEN, BOARD_START_X + TILE_OFFSET_X * 3,
+//				BOARD_START_Y + TILE_OFFSET_Y * 0);
+//		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_KING, BOARD_START_X + TILE_OFFSET_X * 4,
+//				BOARD_START_Y + TILE_OFFSET_Y * 0);
+//		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_BISHOP, BOARD_START_X + TILE_OFFSET_X * 5,
+//				BOARD_START_Y + TILE_OFFSET_Y * 0);
+//		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_KNIGHT, BOARD_START_X + TILE_OFFSET_X * 6,
+//				BOARD_START_Y + TILE_OFFSET_Y * 0);
+//		createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_ROOK, BOARD_START_X + TILE_OFFSET_X * 7,
+//				BOARD_START_Y + TILE_OFFSET_Y * 0);
+//		for (int i = 0; i < 8; i++) {
+//			createAndAddPiece(Couleur.COLOR_BLACK, TypePiece.TYPE_PAWN, BOARD_START_X + TILE_OFFSET_X * i,
+//					BOARD_START_Y + TILE_OFFSET_Y * 1);
+//		}
 
 
-		// create application frame and set visible
-		//
+		// Frame
 		JFrame f = new JFrame();
 		container = f.getContentPane();
 
+		// Menu
 		JMenuBar menu = new JMenuBar();
 		
 		JMenu file = new JMenu("File");
@@ -117,6 +112,8 @@ public class ChessGui extends JPanel {
 		
 		menu.add(file);
 		menu.add(scores);
+		
+		// Listeners
 		ScoresListener listenerScores = new ScoresListener(container);
 		scores.addMenuListener(listenerScores);
 		RulesListener listenerRules = new RulesListener(container);
@@ -132,53 +129,44 @@ public class ChessGui extends JPanel {
 	
 	}
 
-	/**
-	 * create a game piece
-	 * 
-	 * @param color color constant
-	 * @param type type constant
-	 * @param x x position of upper left corner
-	 * @param y y position of upper left corner
-	 */
-	private void createAndAddPiece(Couleur color, TypePiece type, int x, int y) {
-		Case ca = new Case();
-		ca.setX(x);
-		ca.setY(y);
-		Image img = this.getImageForPiece(color, type);
-		Piece piece = null;
-		switch(type){
-		case TYPE_BISHOP:
-			piece = new Fou(img, type, color, ca);
-		break;
-		case TYPE_PAWN:
-			piece = new Pion(img, type, color, ca);
-		break;
-		case TYPE_KING:
-			piece = new Roi(img, type, color, ca);
-		break;
-		case TYPE_QUEEN:
-			piece = new Reine(img, type, color, ca);
-		break;
-		case TYPE_KNIGHT:
-			piece = new Cavalier(img, type, color, ca);
-		break;
-		case TYPE_ROOK:
-			piece = new Tour(img, type, color, ca);
-		break;
-		default:
-			break;
-		}
-		this.pieces.add(piece);
-	}
+	// Creates a game piece
+//	private void createAndAddPiece(Couleur color, TypePiece type, int x, int y) {
+//		Case ca = new Case();
+//		ca.setX(x);
+//		ca.setY(y);
+//		
+//		Image img = this.getImageForPiece(color, type);
+//		
+//		Piece piece = null;
+//		
+//		switch(type){
+//		case TYPE_BISHOP:
+//			piece = new Fou(img, type, color, ca);
+//		break;
+//		case TYPE_PAWN:
+//			piece = new Pion(img, type, color, ca);
+//		break;
+//		case TYPE_KING:
+//			piece = new Roi(img, type, color, ca);
+//		break;
+//		case TYPE_QUEEN:
+//			piece = new Reine(img, type, color, ca);
+//		break;
+//		case TYPE_KNIGHT:
+//			piece = new Cavalier(img, type, color, ca);
+//		break;
+//		case TYPE_ROOK:
+//			piece = new Tour(img, type, color, ca);
+//		break;
+//		default:
+//			break;
+//		}
+//		this.pieces.add(piece);
+//	}
 
-	/**
-	 * load image for given color and type. This method translates the color and
-	 * type information into a filename and loads that particular file.
-	 * 
-	 * @param color color constant
-	 * @param type type constant
-	 * @return image
-	 */
+
+	// Loads image for given color and type. This method translates the color and
+	// type information into a filename and loads that particular file.
 	private Image getImageForPiece(Couleur color, TypePiece type) {
 		String filename = "";
 

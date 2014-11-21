@@ -3,13 +3,12 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.LayoutManager;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-
+// Construction of the rules pannel
 @SuppressWarnings("serial")
 public class RulesPannel extends JPanel {
 
@@ -17,12 +16,14 @@ public class RulesPannel extends JPanel {
 		this.setLayout(new BorderLayout());
 		this.setBackground(Color.white);
 		
+		// Title
 		JLabel intro = new JLabel("Rules !");
 		intro.setHorizontalAlignment(JLabel.CENTER);
 		Font fIntro = new Font("Serif", Font.BOLD,20);
 		intro.setFont(fIntro);
 		
-		JTextArea corpus = new JTextArea("Le joueur ayant les pièces blanches commence la partie."
+		// Text
+		JTextArea corpus = new JTextArea("Le joueur ayant les pièces blanches commence la partie.\n"
 				+ "L’objectif de chaque joueur est de mettre le roi adverse ‘‘en échec’’; c’est à dire de l’attaquer; de telle manière que l’adversaire n’ait pas de coup légal qui puisse éviter la prise du roi au coup suivant."
 				+ "Aucune pièce ne peut se déplacer sur une case occupée par une pièce de même couleur. Si une pièce se déplace sur une case occupée par une pièce adverse, cette dernière est capturée et retirée de l’échiquier comme partie intégrante du même coup."
 				+"Mouvement des pièces :"
@@ -34,6 +35,7 @@ public class RulesPannel extends JPanel {
 				+ "de deux cases sur la même colonne à condition qu’elles soient inoccupées, ou il peut se déplacer sur une case occupée par une pièce adverse, située "
 				+ "diagonalement en face de lui sur la colonne adjacente, et capture ainsi cette pièce.");
 		corpus.setLineWrap(true);
+		corpus.setWrapStyleWord(true);
 		Font fCorpus = new Font("Serif", Font.LAYOUT_LEFT_TO_RIGHT, 18);
 		corpus.setFont(fCorpus);
 		
