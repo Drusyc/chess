@@ -6,7 +6,6 @@ package gui;
 import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -16,17 +15,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import enumeration.Couleur;
-import enumeration.TypePiece;
-import pieces.Cavalier;
-import pieces.Fou;
 import pieces.Piece;
-import pieces.Pion;
-import pieces.Reine;
-import pieces.Roi;
-import pieces.Tour;
-import plateau.Case;
 import plateau.Plateau;
+
 
 
 // the origin of the axis is at the upper left corner of the window
@@ -129,6 +120,7 @@ public class ChessGui extends JPanel {
 		RulesListener listenerRules = new RulesListener(container);
 		rules.addActionListener(listenerRules);
 		GameListener listenerGame = new GameListener(container);
+		
 		newGame.addActionListener(listenerGame);
 		
 		f.setJMenuBar(menu);
@@ -205,9 +197,18 @@ public class ChessGui extends JPanel {
 //	}
 	
 
-	protected void paintComponent(Graphics g, Plateau board, List<Piece>  pieces) {
+	
+	public void paintComponent(Graphics g, Plateau board) {
 		g.drawImage(this.imgBackground, 0, 0, null);
-		for (Piece piece : pieces) {
+		for (Piece piece : board.pieces) {
+			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+		}
+	}
+	
+	public void draw (Plateau board) {
+		Graphics g = this.getGraphics();
+		g.drawImage(this.imgBackground, 0, 0, null);
+		for (Piece piece : board.pieces) {
 			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
 		}
 	}
