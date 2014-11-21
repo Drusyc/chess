@@ -119,6 +119,8 @@ public class ChessGui extends JPanel {
 		scores.addMenuListener(listenerScores);
 		RulesListener listenerRules = new RulesListener(container);
 		rules.addActionListener(listenerRules);
+		GameListener listenerGame = new GameListener(container);
+		newGame.addActionListener(listenerGame);
 		
 		f.setJMenuBar(menu);
 		
@@ -193,42 +195,6 @@ public class ChessGui extends JPanel {
 //		return new ImageIcon("img/" + filename).getImage();
 //	}
 	
-//
-//	/**
-//	 * load image for given color and type. This method translates the color and
-//	 * type information into a filename and loads that particular file.
-//	 * 
-//	 * @param color color constant
-//	 * @param type type constant
-//	 * @return image
-//	 */
-//	private Image getImageForPiece(Couleur color, TypePiece type) {
-//		String filename = "";
-//
-//		filename += (color == Couleur.COLOR_WHITE ? "w" : "b");
-//		switch (type) {
-//			case TYPE_BISHOP:
-//				filename += "b";
-//				break;
-//			case TYPE_KING:
-//				filename += "k";
-//				break;
-//			case TYPE_KNIGHT:
-//				filename += "n";
-//				break;
-//			case TYPE_PAWN:
-//				filename += "p";
-//				break;
-//			case TYPE_QUEEN:
-//				filename += "q";
-//				break;
-//			case TYPE_ROOK:
-//				filename += "r";
-//				break;
-//		}
-//		filename += ".png";
-//		return new ImageIcon("img/" + filename).getImage();
-//	}
 
 	public void paintComponent(Graphics g, Plateau board) {
 		g.drawImage(this.imgBackground, 0, 0, null);
