@@ -1,8 +1,8 @@
 package plateau;
 
-import java.util.Observable;
-
 import pieces.Piece;
+
+import java.util.Observable;
 
 
 public class Case extends Observable {
@@ -13,12 +13,10 @@ public class Case extends Observable {
     
     public Case(int x, int y) {
         this.x = x;
+        this.y = y;
     }
     
     private Plateau board;
-    
-    public Case() {
-    }
 
     public void setX(int x) {
         this.x = x;
@@ -63,6 +61,8 @@ public class Case extends Observable {
     public Piece getPiece () {
     	return this.piece;
     }
+
+   
     
     public void informe () {
     	this.board.maj();

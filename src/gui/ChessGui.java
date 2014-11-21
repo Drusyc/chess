@@ -6,6 +6,7 @@ package gui;
 import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -34,19 +35,20 @@ public class ChessGui extends JPanel {
 	
 	private static final long serialVersionUID = 3114147670071466558L;
 
-	private static final int BOARD_START_X = 301;
-	private static final int BOARD_START_Y = 51;
+	protected static final int BOARD_START_X = 301;
+	protected static final int BOARD_START_Y = 51;
 
-	private static final int TILE_OFFSET_X = 50;
-	private static final int TILE_OFFSET_Y = 50;
+	protected static final int TILE_OFFSET_X = 50;
+	protected static final int TILE_OFFSET_Y = 50;
 	
+	public GamePannel gp;
 	
 
 	private Image imgBackground;
 	private Container container;
 
 	// 0 = bottom, size-1 = top
-	//private List<Piece> pieces = new ArrayList<Piece>();
+	public static List<Piece> gui_pieces = new ArrayList<Piece>();
 
 	public ChessGui() {
 		// background image
@@ -196,8 +198,18 @@ public class ChessGui extends JPanel {
 //		return new ImageIcon("img/" + filename).getImage();
 //	}
 	
-
+	public void setPiece (Plateau board) {
+		ChessGui.gui_pieces = board.pieces;
+	}
 	
+//	@Override
+//	public void paintComponent(Graphics g) {
+//		g.drawImage(this.imgBackground, 0, 0, null);
+//		for (Piece piece : gui_pieces) {
+//			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+//		}
+//	}
+
 	public void paintComponent(Graphics g, Plateau board) {
 		g.drawImage(this.imgBackground, 0, 0, null);
 		for (Piece piece : board.pieces) {
@@ -205,12 +217,26 @@ public class ChessGui extends JPanel {
 		}
 	}
 	
+	@Override
+	public void paintComponent(Graphics g) {
+		for (Piece piece : gui_pieces) {
+			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+		}
+		System.out.println("paint");
+	}
+
+//	@Override
+//	public void repaint() {
+//		this.paintComponents(this.getGraphics());
+//	}
+	
 	public void draw (Plateau board) {
 		Graphics g = this.getGraphics();
 		g.drawImage(this.imgBackground, 0, 0, null);
-		for (Piece piece : board.pieces) {
-			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
-		}
+//		for (Piece piece : board.pieces) {
+//			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+//		}
+		this.paintComponents(g);
 	}
 	
 //	public static void main(String[] args) {

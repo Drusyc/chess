@@ -4,7 +4,6 @@ package gui;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -16,18 +15,22 @@ import plateau.Plateau;
 public class GamePannel extends JPanel {
 	private Image imgBackground;
 
-	
+
 	public GamePannel() {
 		this.imgBackground = new ImageIcon("img/board.png").getImage();
 		this.paintComponent(getGraphics(), board, pieces);
 	}
-
 	
-	protected void paintComponent(Graphics g, Plateau board, List<Piece>  pieces) {
+
+	@Override
+	protected void paintComponent(Graphics g) {
 		g.drawImage(this.imgBackground, 0, 0, null);
-		for (Piece piece : pieces) {
-			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+		for (Piece piece : ChessGui.gui_pieces) {
+			g.drawImage(piece.getImage(), ChessGui.BOARD_START_X + ChessGui.TILE_OFFSET_X * piece.getCase().getY(),
+					ChessGui.BOARD_START_Y + ChessGui.TILE_OFFSET_Y *piece.getCase().getX(), null);
+			
+
 		}
 	}
-
+	
 }
