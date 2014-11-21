@@ -1,0 +1,12 @@
+\\Le programme n'a pas été entièrement réalisé suite à des problèmes d'implémentations. Nous avons rencontré de nombreaux problèmes liés
+\\au langage Java (affichage/ré-affichage) pour l'interface graphique. Beaucoup de temps a été perdu pour l'interface graphique.
+\\C'est pourquoi l'ensemble des fonctionnalités de l'incrément n'ont pas pu toutes êtres codées : toutes classes du diagramme de classe ont été implémentées.\\Cependant il manque quelques fonctionnalitées dans les classes "jeuON" et dans "pièces" pour le déplacement des pièces.
+\\Les patrons Visiteurs/Observateurs/Etats ont été implémentés.
+\\Nous avons remarqué que, pour le patron visiteur, case devait elle aussi être Observateur de Pièce, et pas seulement Pièce. Nous avions besoin de pouvoir 
+\\d'informer le plateau qu'une pièce a été déplacée, et le seul lien entre Pièce et Plateau était case. Puis cela prend du sens qu'une case observe si 
+\\elle possède une pièce ou non.
+\\On peut déplacer les pièces, même si elles réagissent parfois bizarrement. La vérification des déplacements spéciaux pour chaque pièce mais n'a pas été 
+\\utilisée dans le programme par manque de temps.
+\\On peut afficher un tableau des scores et une page des règles.
+
+
