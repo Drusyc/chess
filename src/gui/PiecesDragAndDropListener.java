@@ -18,7 +18,7 @@ public class PiecesDragAndDropListener implements MouseListener, MouseMotionList
 	
 
 	public PiecesDragAndDropListener(List<Piece> pieces, ChessGui chessGui) {
-		this.pieces = chessGui.gui_pieces;
+		this.pieces = pieces;
 		this.chessGui = chessGui;
 	}
 
@@ -26,7 +26,7 @@ public class PiecesDragAndDropListener implements MouseListener, MouseMotionList
 	public void mousePressed(MouseEvent evt) {
 		int x = evt.getPoint().x;
 		int y = evt.getPoint().y;
-		
+		System.out.println("okokok");
 		// find out which piece to move.
 		// we check the list from top to buttom
 		// (therefore we itereate in reverse order)
