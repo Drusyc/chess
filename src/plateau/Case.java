@@ -13,6 +13,8 @@ public class Case extends Observable {
     private boolean occupee;
     private Piece piece = null;
     
+    public Case(int x, int y) {
+        this.x = x;
     private Plateau board;
     
     public Case() {
