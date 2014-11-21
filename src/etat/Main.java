@@ -11,7 +11,6 @@ public class Main {
 		Etat e = new jeuOFF();
 		ChessGui g = new ChessGui();
 		
-
 		Plateau board = Plateau.instance();
 		g.setPiece(board);
 		PiecesDragAndDropListener aa = new PiecesDragAndDropListener(g.gui_pieces,g);
