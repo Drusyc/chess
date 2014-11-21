@@ -2,8 +2,8 @@ package plateau;
 
 
 import enumeration.Couleur;
+import enumeration.TypePiece;
 import pieces.*;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class Plateau {
     final private static Plateau plateau = new Plateau();
 
     // les cases du plateau
-    private Case[][] matriceCases = new Case[64][64];
+    private Case[][] matriceCases = new Case[8][8];
 
     // renvoit l'instance unique de la classe Plateau
     public static Plateau instance () {
@@ -34,7 +34,7 @@ public class Plateau {
         for (int j = 0; j < 8; j++) {
             Case caze = new Case(j,6);
             caze.setOccupation(true);
-            Piece piece = new Pion("Pion", Couleur.COLOR_WHITE,caze);
+            Piece piece = new Pion(TypePiece.TYPE_PAWN, Couleur.COLOR_WHITE,caze);
             piece.setCase(caze);
             matriceCases[j][6] = caze;
 	    /*    l'instanciation de la classe Plateau depuis une autre classe
@@ -43,8 +43,8 @@ public class Plateau {
     private List<Piece> pieces_detruites = new ArrayList<Piece>();
     
     private Plateau() {
-        matriceCases = new Case[64][64];
-        // Placeme
+        matriceCases = new Case[8][8];
+        // Placement
         for (int i = 0; i < 8; i++) {
                 Case caze = new Case();
                 caze.setX(1); caze.setY(i);
