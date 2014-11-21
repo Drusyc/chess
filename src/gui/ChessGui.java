@@ -16,17 +16,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import enumeration.Couleur;
-import enumeration.TypePiece;
-import pieces.Cavalier;
-import pieces.Fou;
 import pieces.Piece;
-import pieces.Pion;
-import pieces.Reine;
-import pieces.Roi;
-import pieces.Tour;
-import plateau.Case;
 import plateau.Plateau;
+
 
 
 // the origin of the axis is at the upper left corner of the window
@@ -55,7 +47,7 @@ public class ChessGui extends JPanel {
 	private Container container;
 
 	// 0 = bottom, size-1 = top
-	//private List<Piece> pieces = new ArrayList<Piece>();
+	public static List<Piece> gui_pieces = new ArrayList<Piece>();
 
 	public ChessGui() {
 		// background image
@@ -129,6 +121,7 @@ public class ChessGui extends JPanel {
 		RulesListener listenerRules = new RulesListener(container);
 		rules.addActionListener(listenerRules);
 		GameListener listenerGame = new GameListener(container);
+		
 		newGame.addActionListener(listenerGame);
 		
 		f.setJMenuBar(menu);
@@ -204,12 +197,32 @@ public class ChessGui extends JPanel {
 //		return new ImageIcon("img/" + filename).getImage();
 //	}
 	
+	public void setPiece (Plateau board) {
+		ChessGui.gui_pieces = board.pieces;
+	}
+	
+//	@Override
+//	public void paintComponent(Graphics g) {
+//		g.drawImage(this.imgBackground, 0, 0, null);
+//		for (Piece piece : gui_pieces) {
+//			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+//		}
+//	}
 
-	protected void paintComponent(Graphics g, Plateau board, List<Piece>  pieces) {
+	public void paintComponent(Graphics g, Plateau board) {
 		g.drawImage(this.imgBackground, 0, 0, null);
-		for (Piece piece : pieces) {
+		for (Piece piece : board.pieces) {
 			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
 		}
+	}
+	
+	public void draw (Plateau board) {
+		Graphics g = this.getGraphics();
+		g.drawImage(this.imgBackground, 0, 0, null);
+//		for (Piece piece : board.pieces) {
+//			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
+//		}
+		this.paintComponents(g);
 	}
 	
 //	public static void main(String[] args) {

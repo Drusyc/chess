@@ -11,5 +11,11 @@ public class jeuOFF extends Etat {
 		return jeuON.initial();
 	}
 
+	@Override
+	public void switchJoueur(Joueur j) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 

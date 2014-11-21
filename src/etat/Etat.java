@@ -13,5 +13,7 @@ public abstract class Etat {
 		return this;
 	}
 	
+	public abstract void switchJoueur (Joueur j);
+	
 }
 
