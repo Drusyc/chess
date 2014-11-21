@@ -1,7 +1,6 @@
 package etat;
-import enumeration.Couleur;
-import gui.ChessGui;
 import plateau.Plateau;
+import enumeration.Couleur;
 
 /*
  * 
@@ -32,11 +31,12 @@ public class jeuON extends Etat{
 		return jeuOFF.initial();
 	}
 	
+	@Override
 	public void switchJoueur (Joueur j) {
 		if (j.getNom() == "joueur_1") {
-			j = this.joueur2;
+			j = jeuON.joueur2;
 		} else {
-			j = this.joueur1;
+			j = jeuON.joueur1;
 		}
 	}
 	
@@ -52,12 +52,5 @@ public class jeuON extends Etat{
 		}
 	}
 	
-	public static void main(String[] args) {
-		
-		Etat e = new jeuOFF();
-		ChessGui g = new ChessGui();
-		
-		
-}
 }
 

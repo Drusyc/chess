@@ -28,6 +28,8 @@ public class Plateau {
     
     private List<Piece> pieces_detruites = new ArrayList<Piece>();
     public List<Piece> pieces = new ArrayList<Piece>();
+    
+    private Boolean todo_maj;
   
     /* constructeur privé de la classe Plateau pour interdire
         l'instanciation de la classe Plateau depuis une autre classe
@@ -173,6 +175,8 @@ public class Plateau {
         piece.setCase(caze);
         matriceCases[7][0] = caze;
         this.pieces.add(piece);
+        
+        this.todo_maj = true;
     }
 
     public void add_Detruite (Piece piece){
@@ -181,6 +185,18 @@ public class Plateau {
     
     public Case getIJ (int i, int j) {
     	return this.matriceCases[i][j];
+    }
+    
+    public void maj () {
+    	this.todo_maj = true;
+    }
+   
+    public void maj_done () {
+    	this.todo_maj = false;
+    }
+    
+    public boolean get_todoMaj () {
+    	return this.todo_maj;
     }
 
 }

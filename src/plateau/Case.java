@@ -64,9 +64,9 @@ public class Case extends Observable {
     	return this.piece;
     }
     
-    
-  
-    
+    public void informe () {
+    	this.board.maj();
+    }  
     
     /*
     private ArrayList<Observateur> listeObservateurs = new ArrayList<Observateur>();

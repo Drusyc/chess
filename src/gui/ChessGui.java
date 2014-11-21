@@ -6,7 +6,6 @@ package gui;
 import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -16,16 +15,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import enumeration.Couleur;
-import enumeration.TypePiece;
-import pieces.Cavalier;
-import pieces.Fou;
 import pieces.Piece;
-import pieces.Pion;
-import pieces.Reine;
-import pieces.Roi;
-import pieces.Tour;
-import plateau.Case;
 import plateau.Plateau;
 
 /**
@@ -33,6 +23,8 @@ import plateau.Plateau;
  * lists are treated as 0 being the bottom and size-1 being the top piece
  * 
  */
+
+
 public class ChessGui extends JPanel {
 
 	private static final long serialVersionUID = 3114147670071466558L;
@@ -208,9 +200,9 @@ public class ChessGui extends JPanel {
 //		return new ImageIcon("img/" + filename).getImage();
 //	}
 
-	protected void paintComponent(Graphics g, Plateau board, List<Piece>  pieces) {
+	public void paintComponent(Graphics g, Plateau board) {
 		g.drawImage(this.imgBackground, 0, 0, null);
-		for (Piece piece : pieces) {
+		for (Piece piece : board.pieces) {
 			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
 		}
 	}
