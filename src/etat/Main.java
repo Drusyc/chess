@@ -20,6 +20,7 @@ public class Main {
 		Plateau board = Plateau.instance();
 		g.setPiece(board);
 		
+		
 		/* Affichage du plateau + les pièces */
 		/*
 		 
