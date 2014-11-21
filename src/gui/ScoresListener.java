@@ -20,6 +20,7 @@ public class ScoresListener implements MenuListener {
 		scoresPannel = new ScoresPannel();
 		container.add(scoresPannel);
 		container.revalidate();
+		ChessGui.etat = false;
 	}
 	@Override
 	public void menuCanceled(MenuEvent arg0) {

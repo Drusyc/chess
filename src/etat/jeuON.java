@@ -1,5 +1,6 @@
 package etat;
 import enumeration.Couleur;
+import gui.ChessGui;
 import plateau.Plateau;
 
 /*
@@ -50,5 +51,13 @@ public class jeuON extends Etat{
 			//..
 		}
 	}
+	
+	public static void main(String[] args) {
+		
+		Etat e = new jeuOFF();
+		ChessGui g = new ChessGui();
+		
+		
+}
 }
 

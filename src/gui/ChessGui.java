@@ -26,11 +26,21 @@ import pieces.Reine;
 import pieces.Roi;
 import pieces.Tour;
 import plateau.Case;
+import plateau.Plateau;
 
 
 // the origin of the axis is at the upper left corner of the window
 public class ChessGui extends JPanel {
-
+	
+	public static boolean etat = false;
+	
+	public boolean getEtat(){
+		return etat;
+	}
+//	public void setEtat(boolean etat){
+//		this.etat = etat;
+//	}
+	
 	private static final long serialVersionUID = 3114147670071466558L;
 
 	private static final int BOARD_START_X = 301;
@@ -45,7 +55,7 @@ public class ChessGui extends JPanel {
 	private Container container;
 
 	// 0 = bottom, size-1 = top
-	private List<Piece> pieces = new ArrayList<Piece>();
+	//private List<Piece> pieces = new ArrayList<Piece>();
 
 	public ChessGui() {
 		// background image
@@ -134,11 +144,8 @@ public class ChessGui extends JPanel {
 //		Case ca = new Case();
 //		ca.setX(x);
 //		ca.setY(y);
-//		
 //		Image img = this.getImageForPiece(color, type);
-//		
 //		Piece piece = null;
-//		
 //		switch(type){
 //		case TYPE_BISHOP:
 //			piece = new Fou(img, type, color, ca);
@@ -167,44 +174,80 @@ public class ChessGui extends JPanel {
 
 	// Loads image for given color and type. This method translates the color and
 	// type information into a filename and loads that particular file.
-	private Image getImageForPiece(Couleur color, TypePiece type) {
-		String filename = "";
+//	private Image getImageForPiece(Couleur color, TypePiece type) {
+//		String filename = "";
+//
+//		filename += (color == Couleur.COLOR_WHITE ? "w" : "b");
+//		switch (type) {
+//			case TYPE_BISHOP:
+//				filename += "b";
+//				break;
+//			case TYPE_KING:
+//				filename += "k";
+//				break;
+//			case TYPE_KNIGHT:
+//				filename += "n";
+//				break;
+//			case TYPE_PAWN:
+//				filename += "p";
+//				break;
+//			case TYPE_QUEEN:
+//				filename += "q";
+//				break;
+//			case TYPE_ROOK:
+//				filename += "r";
+//				break;
+//		}
+//		filename += ".png";
+//		return new ImageIcon("img/" + filename).getImage();
+//	}
+	
+//
+//	/**
+//	 * load image for given color and type. This method translates the color and
+//	 * type information into a filename and loads that particular file.
+//	 * 
+//	 * @param color color constant
+//	 * @param type type constant
+//	 * @return image
+//	 */
+//	private Image getImageForPiece(Couleur color, TypePiece type) {
+//		String filename = "";
+//
+//		filename += (color == Couleur.COLOR_WHITE ? "w" : "b");
+//		switch (type) {
+//			case TYPE_BISHOP:
+//				filename += "b";
+//				break;
+//			case TYPE_KING:
+//				filename += "k";
+//				break;
+//			case TYPE_KNIGHT:
+//				filename += "n";
+//				break;
+//			case TYPE_PAWN:
+//				filename += "p";
+//				break;
+//			case TYPE_QUEEN:
+//				filename += "q";
+//				break;
+//			case TYPE_ROOK:
+//				filename += "r";
+//				break;
+//		}
+//		filename += ".png";
+//		return new ImageIcon("img/" + filename).getImage();
+//	}
 
-		filename += (color == Couleur.COLOR_WHITE ? "w" : "b");
-		switch (type) {
-			case TYPE_BISHOP:
-				filename += "b";
-				break;
-			case TYPE_KING:
-				filename += "k";
-				break;
-			case TYPE_KNIGHT:
-				filename += "n";
-				break;
-			case TYPE_PAWN:
-				filename += "p";
-				break;
-			case TYPE_QUEEN:
-				filename += "q";
-				break;
-			case TYPE_ROOK:
-				filename += "r";
-				break;
-		}
-		filename += ".png";
-		return new ImageIcon("img/" + filename).getImage();
-	}
-
-	@Override
-	protected void paintComponent(Graphics g) {
+	protected void paintComponent(Graphics g, Plateau board, List<Piece>  pieces) {
 		g.drawImage(this.imgBackground, 0, 0, null);
-		for (Piece piece : this.pieces) {
+		for (Piece piece : pieces) {
 			g.drawImage(piece.getImage(), piece.getCase().getX(), piece.getCase().getY(), null);
 		}
 	}
 	
-	public static void main(String[] args) {
-		new ChessGui();
-	}
+//	public static void main(String[] args) {
+//		new ChessGui();
+//	}
 
 }

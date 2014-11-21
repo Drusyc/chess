@@ -11,8 +11,8 @@ import visiteur.Visiteur;
  */
 public class Reine extends Piece {
 	
-	public Reine(Image img,TypePiece t, Couleur co, Case ca) {
-		super(img,t, co, ca);
+	public Reine(TypePiece t, Couleur co, Case ca) {
+		super(t, co, ca);
 		// TODO Auto-generated constructor stub
 	}
 

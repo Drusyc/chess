@@ -20,6 +20,7 @@ public class RulesListener implements ActionListener {
 		rulesPannel = new RulesPannel();
 		container.add(rulesPannel);
 		container.revalidate();
+		ChessGui.etat = false;
 		
 	}
 

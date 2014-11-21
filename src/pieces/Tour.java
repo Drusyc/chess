@@ -1,17 +1,15 @@
 package pieces;
 
-import java.awt.Image;
-
 import plateau.Case;
+import visiteur.Visiteur;
 import enumeration.Couleur;
 import enumeration.TypePiece;
-import visiteur.Visiteur;
 /**
  * Created by amadou on 17/11/14.
  */
 public class Tour extends Piece {
-	public Tour(Image img,TypePiece t, Couleur co, Case ca) {
-		super(img,t, co, ca);
+	public Tour(TypePiece t, Couleur co, Case ca) {
+		super(t, co, ca);
 		// TODO Auto-generated constructor stub
 	}
 
