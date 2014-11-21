@@ -1,6 +1,7 @@
 package etat;
 
 import gui.ChessGui;
+import gui.PiecesDragAndDropListener;
 import plateau.Plateau;
 
 public class Main {
@@ -10,15 +11,18 @@ public class Main {
 		Etat e = new jeuOFF();
 		ChessGui g = new ChessGui();
 		
-		/* Tant que l'user ne click pas sur "new game" */
+
+		Plateau board = Plateau.instance();
+		g.setPiece(board);
+		PiecesDragAndDropListener aa = new PiecesDragAndDropListener(g.gui_pieces,g);
+		g.addMouseListener(aa);
+		g.addMouseMotionListener(aa);
+		
+		/* Tant que l'user ne click pas sur "new game "*/
 		while(!g.getEtat()){}
 			
 		/* L'état passe à jeuON */
 		e.lancerPartie();
-		
-		/* Création du singleton plateau + les pièces */
-		Plateau board = Plateau.instance();
-		g.setPiece(board);
 		
 		
 		/* Affichage du plateau + les pièces */
@@ -42,6 +46,12 @@ public class Main {
 			
 		}
 		*/
+		/* Création du plateau + les pièces */
+
+		//Plateau board = Plateau.instance();
+		//g.setPiece(board);
+		
+		//g.repaint();
 	}
 
 }
