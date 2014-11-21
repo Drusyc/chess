@@ -9,7 +9,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import pieces.Piece;
-import plateau.Plateau;
 
 @SuppressWarnings("serial")
 public class GamePannel extends JPanel {
